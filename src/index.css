@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;0,800;1,700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    background-color: #EFE8E0;
+    font-family: 'Inter', system-ui, sans-serif;
+    color: #1a1a2e;
+    -webkit-font-smoothing: antialiased;
+  }
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #EFE8E0;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #4E7CB2;
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #203F9A;
+  }
+}
+
+@layer components {
+  .section-padding {
+    @apply px-6 py-16 md:px-12 lg:px-24 lg:py-24;
+  }
+  .btn-primary {
+    @apply inline-flex items-center gap-2 bg-[#203F9A] text-white px-6 py-3 rounded-full font-semibold
+           transition-all duration-300 hover:bg-[#E84797] hover:scale-105 hover:shadow-lg active:scale-95;
+  }
+  .btn-outline {
+    @apply inline-flex items-center gap-2 border-2 border-[#203F9A] text-[#203F9A] px-6 py-3 rounded-full font-semibold
+           transition-all duration-300 hover:bg-[#203F9A] hover:text-white hover:scale-105 active:scale-95;
+  }
+  .card {
+    @apply bg-white rounded-2xl p-6 shadow-sm transition-all duration-300
+           hover:shadow-xl hover:-translate-y-1;
+  }
+  .section-heading {
+    @apply font-display font-bold text-[#203F9A];
+  }
+  .gradient-text {
+    @apply bg-gradient-to-r from-[#203F9A] to-[#E84797] bg-clip-text text-transparent;
+  }
+}
+
+.font-display {
+  font-family: 'Playfair Display', serif;
+}
+
+/* Shiny Text Animation */
+@keyframes shiny-text {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+.animate-shiny-text {
+  animation: shiny-text 8s linear infinite;
+}
