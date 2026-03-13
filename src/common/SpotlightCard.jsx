@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 /**
  * SpotlightCard - Interactive card with mouse hover glow, inspired by ReactBits
  */
-const SpotlightCard = ({ children, className = '', spotlightColor = 'rgba(148, 194, 218, 0.25)' }) => {
+const SpotlightCard = ({ children, className = '', spotlightColor = 'rgba(148, 194, 218, 0.25)', borderOpacity = '0.3' }) => {
     const divRef = useRef(null);
     const [isFocused, setIsFocused] = useState(false);
     const [position, setPosition] = useState({ x: 0, y: 0 });
@@ -33,7 +33,7 @@ const SpotlightCard = ({ children, className = '', spotlightColor = 'rgba(148, 1
             onMouseMove={handleMouseMove}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
-            className={`relative w-full overflow-hidden rounded-2xl border border-[#94C2DA]/30 bg-white shadow-sm transition-all duration-300 hover:shadow-xl ${className}`}
+            className={`relative w-full overflow-hidden rounded-2xl border border-inherit bg-white shadow-sm transition-all duration-300 hover:shadow-xl ${className}`}
         >
             <div
                 className='pointer-events-none absolute -inset-px z-0 transition duration-300'

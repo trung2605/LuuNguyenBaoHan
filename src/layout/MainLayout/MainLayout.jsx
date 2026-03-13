@@ -6,7 +6,7 @@ import { Squares } from '../../common';
 
 const MainLayout = () => {
     return (
-        <div className="min-h-screen bg-[#EFE8E0] font-sans selection:bg-[#94C2DA]/40 overflow-x-hidden">
+        <div className="min-h-screen font-sans selection:bg-[#94C2DA]/40 overflow-x-hidden">
 
             {/* ── Global Background Effects ── */}
             <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">

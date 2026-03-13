@@ -9,7 +9,7 @@
     scroll-behavior: smooth;
   }
   body {
-    background-color: #EFE8E0;
+    background-color: #fff;
     font-family: 'Inter', system-ui, sans-serif;
     color: #1a1a2e;
     -webkit-font-smoothing: antialiased;
@@ -18,7 +18,7 @@
     width: 6px;
   }
   ::-webkit-scrollbar-track {
-    background: #EFE8E0;
+    background: #fff;
   }
   ::-webkit-scrollbar-thumb {
     background: #4E7CB2;

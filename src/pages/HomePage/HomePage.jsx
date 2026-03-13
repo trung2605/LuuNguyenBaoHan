@@ -213,16 +213,17 @@ const HomePage = () => {
                         animate="visible"
                         className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16 md:mt-24"
                     >
-                        {stats.map((stat, i) => (
+                        {stats.map((stat) => (
                             <motion.div key={stat.label} variants={staggerItem}>
                                 <SpotlightCard
-                                    spotlightColor={i % 2 === 0 ? 'rgba(32, 63, 154, 0.12)' : 'rgba(232, 71, 151, 0.12)'}
+                                    spotlightColor="rgba(255, 255, 255, 0.4)"
+                                    className="border-[#EBB6D8]"
                                 >
-                                    <div className="px-6 py-6 text-center cursor-default">
-                                        <p className="font-display font-bold text-3xl md:text-4xl bg-gradient-to-r from-[#203F9A] to-[#E84797] bg-clip-text text-transparent">
+                                    <div className="px-6 py-8 text-center cursor-default bg-[#fff]">
+                                        <p className="font-display font-bold text-3xl md:text-4xl text-[#203F9A]">
                                             {stat.value}
                                         </p>
-                                        <p className="text-sm text-gray-500 mt-1 font-medium">{stat.label}</p>
+                                        <p className="text-sm text-[#203F9A]/80 mt-1 font-medium">{stat.label}</p>
                                     </div>
                                 </SpotlightCard>
                             </motion.div>
