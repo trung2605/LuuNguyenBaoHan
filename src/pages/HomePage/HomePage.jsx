@@ -314,48 +314,6 @@ const HomePage = () => {
                 </motion.div>
             </Section>
 
-            {/* ── TESTIMONIALS SECTION ── */}
-            <Section id="testimonials">
-                <SectionHeader
-                    eyebrow="Kind Words"
-                    title="Client Testimonials"
-                    subtitle="Feedback from the people and brands I've had the pleasure of working with."
-                    centered
-                />
-
-                <motion.div
-                    variants={staggerContainer(0.15)}
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true, margin: '-50px' }}
-                    className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12"
-                >
-                    {testimonials.map((t, i) => (
-                        <motion.div key={t.id} variants={staggerItem}>
-                            <SpotlightCard
-                                spotlightColor={i % 2 === 0 ? 'rgba(32, 63, 154, 0.1)' : 'rgba(232, 71, 151, 0.1)'}
-                                className="h-full"
-                            >
-                                <div className="p-8 h-full flex flex-col bg-white dark:bg-slate-800/80">
-                                    <Quote className="w-10 h-10 text-[#203F9A]/10 dark:text-gray-100/10 mb-6" />
-                                    <p className="text-gray-600 dark:text-gray-300 italic text-base leading-relaxed mb-8 flex-1">
-                                        "{t.quote}"
-                                    </p>
-                                    <div className="flex items-center gap-4 border-t border-gray-50 dark:border-slate-700 pt-6">
-                                        <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#94C2DA] to-[#203F9A] flex items-center justify-center text-white font-bold text-sm shadow-inner">
-                                            {t.avatar}
-                                        </div>
-                                        <div>
-                                            <p className="font-bold text-[#203F9A] dark:text-gray-100 text-sm">{t.name}</p>
-                                            <p className="text-xs text-gray-400 font-medium">{t.role}</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </SpotlightCard>
-                        </motion.div>
-                    ))}
-                </motion.div>
-            </Section>
 
             {/* ── CONTACT SECTION ── */}
             <Section id="contact-section" className="mb-16">
