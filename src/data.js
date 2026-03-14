@@ -17,32 +17,58 @@ export const personalInfo = {
   avatarAlt: "Luu Nguyen Bao Han — Media & Photography Professional",
 };
 
-export const navLinks = [
-  { label: "About", href: "#about" },
-  { label: "Experience", href: "#experience" },
-  { label: "Skills", href: "#skills" },
-  { label: "Portfolio", href: "#portfolio" },
-  { label: "Education", href: "#education" },
-  { label: "Contact", href: "#contact" },
-];
-
-export const stats = [
-  { value: "3+", label: "Years Experience" },
-  { value: "50+", label: "Projects Completed" },
-  { value: "15+", label: "Happy Clients" },
-  { value: "1K+", label: "Photos Taken" },
-];
-
-export const experiences = [
+export const navLinks = [{
+    label: "About",
+    href: "#about"
+  },
   {
+    label: "Experience",
+    href: "#experience"
+  },
+  {
+    label: "Skills",
+    href: "#skills"
+  },
+  {
+    label: "Portfolio",
+    href: "#portfolio"
+  },
+  {
+    label: "Education",
+    href: "#education"
+  },
+  {
+    label: "Contact",
+    href: "#contact"
+  },
+];
+
+export const stats = [{
+    value: "3+",
+    label: "Years Experience"
+  },
+  {
+    value: "50+",
+    label: "Projects Completed"
+  },
+  {
+    value: "15+",
+    label: "Happy Clients"
+  },
+  {
+    value: "1K+",
+    label: "Photos Taken"
+  },
+];
+
+export const experiences = [{
     id: 1,
     role: "Media Coordinator",
     company: "Creative Vision Agency",
     type: "Full-time",
     period: "Jan 2023 – Present",
     location: "Ho Chi Minh City",
-    description:
-      "Lead multimedia production for brand campaigns, managing a team of content creators. Oversee photo/video shoots, edit final deliverables, and maintain brand consistency across all channels.",
+    description: "Lead multimedia production for brand campaigns, managing a team of content creators. Oversee photo/video shoots, edit final deliverables, and maintain brand consistency across all channels.",
     achievements: [
       "Increased social media engagement by 45% through strategic content planning",
       "Produced 20+ brand campaigns for major clients in fashion and F&B sectors",
@@ -57,8 +83,7 @@ export const experiences = [
     type: "Freelance",
     period: "Jun 2021 – Present",
     location: "Vietnam",
-    description:
-      "Provide professional photography services for events, portraits, products, and editorial shoots. Deliver polished, publication-ready images with expert post-processing.",
+    description: "Provide professional photography services for events, portraits, products, and editorial shoots. Deliver polished, publication-ready images with expert post-processing.",
     achievements: [
       "Shot 30+ weddings and private events with consistent 5-star reviews",
       "Built a diverse portfolio spanning fashion, portrait, and commercial photography",
@@ -73,8 +98,7 @@ export const experiences = [
     type: "Full-time",
     period: "Mar 2020 – Dec 2022",
     location: "Ho Chi Minh City",
-    description:
-      "Produced engaging video and photo content for brand social media channels. Handled scriptwriting, filming, editing, and publishing across Instagram, TikTok, and YouTube.",
+    description: "Produced engaging video and photo content for brand social media channels. Handled scriptwriting, filming, editing, and publishing across Instagram, TikTok, and YouTube.",
     achievements: [
       "Grew a brand Instagram account from 2K to 25K followers in 12 months",
       "Created viral content pieces achieving 500K+ combined views",
@@ -89,8 +113,7 @@ export const experiences = [
     type: "Internship",
     period: "Sep 2019 – Feb 2020",
     location: "Ho Chi Minh City",
-    description:
-      "Assisted senior photographers on commercial shoots, learned studio lighting techniques, and supported post-production workflows.",
+    description: "Assisted senior photographers on commercial shoots, learned studio lighting techniques, and supported post-production workflows.",
     achievements: [
       "Assisted in 15+ commercial studio shoots",
       "Mastered lighting setups: softbox, ring light, and three-point lighting",
@@ -100,8 +123,7 @@ export const experiences = [
   },
 ];
 
-export const skillCategories = [
-  {
+export const skillCategories = [{
     title: "Photography",
     icon: "Camera",
     skills: [
@@ -159,66 +181,74 @@ export const skillCategories = [
   },
 ];
 
-export const portfolioItems = [
-  {
+export const portfolioItems = [{
     id: 1,
-    title: "Soft Light Portrait Series",
-    category: "Photography",
-    description: "A studio portrait series exploring soft, cinematic lighting for fashion editorials.",
-    tags: ["Portrait", "Studio", "Editorial"],
+    title: "Chạm Vào Di Sản (Touching Heritage)",
+    category: "Photography & Culture",
+    description: "Một dự án nhiếp ảnh đầy cảm xúc, bắt trọn và lưu giữ vẻ đẹp sâu sắc của di sản văn hóa. Tái hiện lại những khoảnh khắc chân thực và các giá trị truyền thống vượt thời gian qua góc nhìn tài liệu tinh tế.",
+    tags: ["Documentary", "Culture", "Heritage"],
     color: "blue",
+    images: [
+      "https://res.cloudinary.com/dvwt6npcl/image/upload/v1773481393/baohan_portfolio/Ch%E1%BA%A1m_v%C3%A0o_di_s%E1%BA%A3n/DSC09426.jpg",
+      "https://res.cloudinary.com/dvwt6npcl/image/upload/v1773481395/baohan_portfolio/Ch%E1%BA%A1m_v%C3%A0o_di_s%E1%BA%A3n/DSC09430.jpg",
+      "https://res.cloudinary.com/dvwt6npcl/image/upload/v1773481399/baohan_portfolio/Ch%E1%BA%A1m_v%C3%A0o_di_s%E1%BA%A3n/DSC09434.jpg",
+      "https://res.cloudinary.com/dvwt6npcl/image/upload/v1773481403/baohan_portfolio/Ch%E1%BA%A1m_v%C3%A0o_di_s%E1%BA%A3n/DSC09442.jpg",
+      "https://res.cloudinary.com/dvwt6npcl/image/upload/v1773481406/baohan_portfolio/Ch%E1%BA%A1m_v%C3%A0o_di_s%E1%BA%A3n/DSC09454.jpg",
+      "https://res.cloudinary.com/dvwt6npcl/image/upload/v1773481408/baohan_portfolio/Ch%E1%BA%A1m_v%C3%A0o_di_s%E1%BA%A3n/DSC09506.jpg",
+      "https://res.cloudinary.com/dvwt6npcl/image/upload/v1773481410/baohan_portfolio/Ch%E1%BA%A1m_v%C3%A0o_di_s%E1%BA%A3n/DSC09571.jpg",
+      "https://res.cloudinary.com/dvwt6npcl/image/upload/v1773481417/baohan_portfolio/Ch%E1%BA%A1m_v%C3%A0o_di_s%E1%BA%A3n/IMG_3395.jpg"
+    ]
   },
   {
     id: 2,
-    title: "Golden Hour Outdoor Shoot",
-    category: "Photography",
-    description: "Natural light outdoor sessions capturing genuine emotions and beautiful bokeh.",
-    tags: ["Outdoor", "Natural Light", "Lifestyle"],
+    title: "Có Em (With You)",
+    category: "Portraiture & Lifestyle",
+    description: "Một chuỗi các bức ảnh chân dung kết hợp ánh sáng tự nhiên, nhẹ nhàng khám phá vẻ đẹp của thanh xuân, sự gắn kết và những cảm xúc tinh tế. Một câu chuyện bằng hình ảnh đầy chất thơ về người đồng hành.",
+    tags: ["Portrait", "Natural Light", "Lifestyle"],
     color: "pink",
+    images: [
+      "https://res.cloudinary.com/dvwt6npcl/image/upload/v1773481425/baohan_portfolio/C%C3%B3_em/IMG_2590.jpg",
+      "https://res.cloudinary.com/dvwt6npcl/image/upload/v1773481453/baohan_portfolio/C%C3%B3_em/IMG_2595.jpg",
+      "https://res.cloudinary.com/dvwt6npcl/image/upload/v1773481482/baohan_portfolio/C%C3%B3_em/IMG_2604.jpg"
+    ]
   },
   {
     id: 3,
-    title: "Brand Campaign — Bloom Café",
-    category: "Media",
-    description: "Complete visual identity content production for a boutique café brand launch.",
-    tags: ["Branding", "F&B", "Campaign"],
+    title: "Mùa Trở Về (Season of Return)",
+    category: "Editorial Photography",
+    description: "Bộ ảnh mang màu sắc rực rỡ pha lẫn chút tĩnh lặng, nắm bắt trọn vẹn tinh hoa của hoài niệm và khoảnh khắc chuyển giao của đất trời qua lăng kính, bố cục và sự sắp đặt đầy nghệ thuật.",
+    tags: ["Editorial", "Fashion", "Nostalgia"],
     color: "blue",
+    images: [
+      "https://res.cloudinary.com/dvwt6npcl/image/upload/v1773481573/baohan_portfolio/M%C3%B9a_tr%E1%BB%9F_v%E1%BB%81/IMG_4023.jpg",
+      "https://res.cloudinary.com/dvwt6npcl/image/upload/v1773481575/baohan_portfolio/M%C3%B9a_tr%E1%BB%9F_v%E1%BB%81/IMG_4027.jpg"
+    ]
   },
   {
     id: 4,
-    title: "Wedding Documentary Film",
-    category: "Photography & Video",
-    description: "Cinematic wedding documentation blending still photography with short film storytelling.",
-    tags: ["Wedding", "Film", "Cinematic"],
+    title: "Miscellaneous Creations",
+    category: "Creative Photography",
+    description: "Một bộ sưu tập chọn lọc bao gồm những tác phẩm thử nghiệm đa dạng, những cái chớp mắt ngẫu hứng và các phong cách chụp từ nghệ thuật đường phố nhẹ nhàng tới cách phối màu đầy táo bạo.",
+    tags: ["Experimental", "Street", "Eclectic"],
     color: "pink",
-  },
-  {
-    id: 5,
-    title: "TikTok Growth Campaign",
-    category: "Social Media",
-    description: "Conceptualized and executed a viral TikTok series for a lifestyle brand, reaching 1M+ views.",
-    tags: ["TikTok", "Viral", "Short-form"],
-    color: "blue",
-  },
-  {
-    id: 6,
-    title: "Product Photography Collection",
-    category: "Photography",
-    description: "Minimalist, high-conversion product photography for e-commerce brands.",
-    tags: ["Product", "E-commerce", "Minimalist"],
-    color: "pink",
-  },
+    images: [
+      "https://res.cloudinary.com/dvwt6npcl/image/upload/v1773481607/baohan_portfolio/other/DSC09049.jpg",
+      "https://res.cloudinary.com/dvwt6npcl/image/upload/v1773481609/baohan_portfolio/other/DSC09054.jpg",
+      "https://res.cloudinary.com/dvwt6npcl/image/upload/v1773481611/baohan_portfolio/other/DSC09056.jpg",
+      "https://res.cloudinary.com/dvwt6npcl/image/upload/v1773481674/baohan_portfolio/other/IMG_3405.jpg",
+      "https://res.cloudinary.com/dvwt6npcl/image/upload/v1773481684/baohan_portfolio/other/IMG_3414.jpg"
+    ]
+  }
 ];
 
-export const education = [
-  {
+
+export const education = [{
     id: 1,
     degree: "Bachelor of Communications & Media Studies",
     institution: "Ho Chi Minh City University of Social Sciences and Humanities",
     period: "2016 – 2020",
     grade: "GPA: 3.4 / 4.0",
-    description:
-      "Specialized in Journalism & Mass Communication, with elective focus on visual media and digital marketing.",
+    description: "Specialized in Journalism & Mass Communication, with elective focus on visual media and digital marketing.",
     highlights: [
       "Graduated with Distinction",
       "Led the student Media Club for 2 years",
@@ -231,8 +261,7 @@ export const education = [
     institution: "RMIT Vietnam — Creative Arts Faculty",
     period: "2021",
     grade: "Distinction",
-    description:
-      "Intensive professional photography program covering technical skills, studio practice, and commercial photography.",
+    description: "Intensive professional photography program covering technical skills, studio practice, and commercial photography.",
     highlights: [
       "Studio lighting mastery",
       "Commercial and editorial workflows",
@@ -241,29 +270,25 @@ export const education = [
   },
 ];
 
-export const testimonials = [
-  {
+export const testimonials = [{
     id: 1,
     name: "Minh Tran",
     role: "Brand Manager, Bloom Café",
-    quote:
-      "Bao Han captured our brand's soul perfectly. The photos were stunning and she delivered everything ahead of schedule. Truly a professional!",
+    quote: "Bao Han captured our brand's soul perfectly. The photos were stunning and she delivered everything ahead of schedule. Truly a professional!",
     avatar: "MT",
   },
   {
     id: 2,
     name: "Linh Pham",
     role: "Bride & Client",
-    quote:
-      "Our wedding photos are absolutely breathtaking. Bao Han made us feel so comfortable and the results brought us to tears. Couldn't recommend her more.",
+    quote: "Our wedding photos are absolutely breathtaking. Bao Han made us feel so comfortable and the results brought us to tears. Couldn't recommend her more.",
     avatar: "LP",
   },
   {
     id: 3,
     name: "David Nguyen",
     role: "Creative Director, Creative Vision Agency",
-    quote:
-      "One of the most talented and reliable media professionals I've worked with. Her eye for detail and creative instinct elevate every project she touches.",
+    quote: "One of the most talented and reliable media professionals I've worked with. Her eye for detail and creative instinct elevate every project she touches.",
     avatar: "DN",
   },
 ];

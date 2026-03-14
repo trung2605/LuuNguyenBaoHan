@@ -11,24 +11,47 @@ const appConfig = {
 
   // Navigation routes (single-page sections mirrored as hash routes)
   navigation: {
-    sections: [
-      { id: 'home',        label: 'Home',        path: '/',            hash: '#home' },
-      { id: 'experience',  label: 'Experience',  path: '/experience',  hash: '#experience' },
-      { id: 'skills',      label: 'Skills',      path: '/skills',      hash: '#skills' },
-      { id: 'portfolio',   label: 'Portfolio',   path: '/portfolio',   hash: '#portfolio' },
-      { id: 'education',   label: 'Education',   path: '/education',   hash: '#education' },
-      { id: 'contact',     label: 'Contact',     path: '/#contact-section', hash: '#contact-section' },
+    sections: [{
+        id: 'home',
+        label: 'Home',
+        path: '/',
+        hash: '#home'
+      },
+      {
+        id: 'experience',
+        label: 'Experience',
+        path: '/experience',
+        hash: '#experience'
+      },
+      {
+        id: 'skills',
+        label: 'Skills',
+        path: '/skills',
+        hash: '#skills'
+      },
+      {
+        id: 'portfolio',
+        label: 'Portfolio',
+        path: '/portfolio',
+        hash: '#portfolio'
+      },
+      {
+        id: 'education',
+        label: 'Education',
+        path: '/education',
+        hash: '#education'
+      },
     ],
   },
 
   // Color palette tokens (mirrors tailwind.config.js)
   colors: {
-    bg:          '#EFE8E0',
-    blue:        '#203F9A',
-    pink:        '#E84797',
-    pastelBlue:  '#94C2DA',
-    pastelPink:  '#E7A0CC',
-    secondary:   '#4E7CB2',
+    bg: '#EFE8E0',
+    blue: '#203F9A',
+    pink: '#E84797',
+    pastelBlue: '#94C2DA',
+    pastelPink: '#E7A0CC',
+    secondary: '#4E7CB2',
   },
 
   // Animation presets shared across the app

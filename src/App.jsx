@@ -8,6 +8,7 @@ import HomePage from './pages/HomePage/HomePage';
 import ExperiencePage from './pages/ExperiencePage/ExperiencePage';
 import SkillsPage from './pages/SkillsPage/SkillsPage';
 import PortfolioPage from './pages/PortfolioPage/PortfolioPage';
+import PortfolioDetailPage from './pages/PortfolioPage/PortfolioDetailPage';
 import EducationPage from './pages/EducationPage/EducationPage';
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
                 <Route path="experience" element={<ExperiencePage />} />
                 <Route path="skills" element={<SkillsPage />} />
                 <Route path="portfolio" element={<PortfolioPage />} />
+                <Route path="portfolio/:id" element={<PortfolioDetailPage />} />
                 <Route path="education" element={<EducationPage />} />
               </Route>
             </Routes>

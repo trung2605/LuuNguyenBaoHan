@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
 import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Camera, Menu, X } from 'lucide-react';
+import { Camera, Menu, X, Sun, Moon } from 'lucide-react';
 import { useApp } from '../../contexts/AppContext';
+import { useCustomTheme } from '../../contexts/ThemeContext';
 import appConfig from '../../config/appConfig';
 
 const { sections } = appConfig.navigation;
@@ -10,6 +11,7 @@ const { sections } = appConfig.navigation;
 const Navigation = () => {
     const [isScrolled, setIsScrolled] = useState(false);
     const { menuOpen, toggleMenu, closeMenu } = useApp();
+    const { isDarkMode, toggleTheme } = useCustomTheme();
     const location = useLocation();
     const navigate = useNavigate();
 
@@ -92,15 +94,24 @@ const Navigation = () => {
                     ))}
                 </ul>
 
-                {/* ── CTA (Desktop) ── */}
-                <button
-                    onClick={() => handleNavClick('/#contact-section')}
-                    className="hidden md:inline-flex items-center gap-2 bg-[#203F9A] text-white
-                     px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-300
-                     hover:bg-[#E84797] hover:scale-105 hover:shadow-lg active:scale-95"
-                >
-                    Hire Me
-                </button>
+                {/* ── CTA (Desktop) & Theme Toggle ── */}
+                <div className="hidden md:flex items-center gap-4">
+                    <button
+                        onClick={toggleTheme}
+                        className="w-10 h-10 rounded-full flex items-center justify-center bg-[#EFE8E0] text-[#203F9A] hover:bg-[#94C2DA]/30 transition-colors dark:bg-[#1e293b] dark:text-[#E7A0CC]"
+                        aria-label="Toggle Dark Mode"
+                    >
+                        {isDarkMode ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+                    </button>
+                    <button
+                        onClick={() => handleNavClick('/#contact-section')}
+                        className="inline-flex items-center gap-2 bg-[#203F9A] text-white
+                         px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-300
+                         hover:bg-[#E84797] hover:scale-105 hover:shadow-lg active:scale-95"
+                    >
+                        Hire Me
+                    </button>
+                </div>
 
                 {/* ── Mobile Hamburger ── */}
                 <button
@@ -150,6 +161,20 @@ const Navigation = () => {
                              hover:bg-[#E84797] transition-colors duration-300"
                                 >
                                     Hire Me
+                                </button>
+                                <button
+                                    onClick={() => {
+                                        toggleTheme();
+                                        closeMenu();
+                                    }}
+                                    className="mt-2 flex items-center justify-center w-full bg-[#EFE8E0] dark:bg-[#1e293b] text-[#203F9A] dark:text-[#E7A0CC]
+                             px-5 py-3 rounded-full text-sm font-semibold hover:bg-[#94C2DA]/30 transition-colors duration-300"
+                                >
+                                    {isDarkMode ? (
+                                        <><Sun className="w-4 h-4 mr-2" /> Light Mode</>
+                                    ) : (
+                                        <><Moon className="w-4 h-4 mr-2" /> Dark Mode</>
+                                    )}
                                 </button>
                             </div>
                         </div>

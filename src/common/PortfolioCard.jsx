@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { staggerItem } from '../animations/variants';
 
@@ -6,6 +7,10 @@ import { staggerItem } from '../animations/variants';
  */
 const categoryColors = {
     Photography: { bg: 'bg-[#94C2DA]/20', text: 'text-[#4E7CB2]' },
+    'Photography & Culture': { bg: 'bg-[#94C2DA]/20', text: 'text-[#4E7CB2]' },
+    'Creative Photography': { bg: 'bg-[#E7A0CC]/20', text: 'text-[#E84797]' },
+    'Editorial Photography': { bg: 'bg-[#94C2DA]/20', text: 'text-[#4E7CB2]' },
+    'Portraiture & Lifestyle': { bg: 'bg-[#E7A0CC]/20', text: 'text-[#E84797]' },
     Media: { bg: 'bg-[#E7A0CC]/20', text: 'text-[#E84797]' },
     'Photography & Video': { bg: 'bg-[#203F9A]/10', text: 'text-[#203F9A]' },
     'Social Media': { bg: 'bg-[#E84797]/10', text: 'text-[#E84797]' },
@@ -23,25 +28,46 @@ const gradients = [
 const emojis = ['📷', '🌅', '☕', '💍', '📱', '📦'];
 
 const PortfolioCard = ({ item, index, noShadow = false }) => {
+    const navigate = useNavigate();
     const colors = categoryColors[item.category] ?? categoryColors.Photography;
     const gradient = gradients[index % gradients.length];
 
+    const firstImage = item.images && item.images.length > 0 ? item.images[0] : null;
+
     return (
         <div
-            className={`group h-full flex flex-col transition-all duration-300 ${noShadow ? '' : 'rounded-2xl bg-white shadow-sm border border-gray-100 hover:shadow-xl hover:-translate-y-2'
+            onClick={() => navigate(`/portfolio/${item.id}`)}
+            className={`cursor-pointer group h-full flex flex-col transition-all duration-300 ${noShadow ? '' : 'rounded-2xl bg-white shadow-sm border border-gray-100 hover:shadow-xl hover:-translate-y-2'
                 }`}
         >
             {/* Visual */}
-            <div className={`relative h-44 bg-gradient-to-br ${gradient} flex items-center justify-center overflow-hidden`}>
-                <div className="absolute inset-0 bg-black/10 group-hover:bg-black/5 transition-colors duration-300" />
-                <div className="z-10 text-center text-white px-4">
-                    <div className="text-4xl mb-1.5 opacity-80">{emojis[index % emojis.length]}</div>
-                    <p className="text-sm font-medium opacity-90">{item.category}</p>
-                </div>
+            <div className={`relative h-56 bg-gradient-to-br ${gradient} flex flex-col items-center justify-center overflow-hidden bg-gray-100`}>
+                {firstImage ? (
+                    <img
+                        src={firstImage}
+                        alt={item.title}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-in-out"
+                        loading="lazy"
+                    />
+                ) : (
+                    <>
+                        <div className="absolute inset-0 bg-black/10 group-hover:bg-black/5 transition-colors duration-300" />
+                        <div className="z-10 text-center text-white px-4">
+                            <div className="text-4xl mb-1.5 opacity-80">{emojis[index % emojis.length]}</div>
+                            <p className="text-sm font-medium opacity-90">{item.category}</p>
+                        </div>
+                    </>
+                )}
+
                 <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300
                         flex items-center justify-center">
-                    <div className="w-11 h-11 rounded-full bg-white/20 border-2 border-white flex items-center justify-center text-white text-lg">
-                        →
+                    <div className="flex flex-col items-center justify-center">
+                        <div className="w-12 h-12 rounded-full bg-white/20 border-2 border-white flex items-center justify-center text-white text-lg backdrop-blur-sm shadow-xl">
+                            →
+                        </div>
+                        {item.images && item.images.length > 1 && (
+                            <p className="text-white mt-3 font-semibold text-sm tracking-widest">{item.images.length} PHOTOS</p>
+                        )}
                     </div>
                 </div>
             </div>
