@@ -11,7 +11,7 @@ const MainLayout = () => {
     const location = useLocation();
 
     return (
-        <div className="min-h-screen font-sans selection:bg-[#94C2DA]/40 overflow-x-hidden transition-colors duration-500 bg-brand-bg dark:bg-slate-950">
+        <div className="min-h-screen font-sans selection:bg-[#94C2DA]/40 overflow-x-hidden transition-colors duration-500 dark:bg-slate-950">
 
             {/* ── Global Background Effects ── */}
             <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">

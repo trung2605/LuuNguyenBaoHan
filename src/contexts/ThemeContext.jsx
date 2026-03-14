@@ -24,7 +24,7 @@ export const ThemeContextProvider = ({ children }) => {
 
     useEffect(() => {
         localStorage.setItem('baohan-theme', JSON.stringify(isDarkMode));
-        if (isDarkMode) {
+        if (!isDarkMode) {
             document.documentElement.classList.add('dark');
         } else {
             document.documentElement.classList.remove('dark');
