@@ -179,50 +179,57 @@ const PortfolioDetailPage = () => {
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
-                        className="fixed inset-0 z-[100] flex items-center justify-center bg-black/95 backdrop-blur-xl p-4 md:p-10"
+                        className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/98 backdrop-blur-2xl p-4 md:p-10"
                         onClick={closeLightbox}
                     >
                         {/* Close button */}
                         <button
-                            className="absolute top-6 right-6 z-50 w-12 h-12 flex items-center justify-center bg-white/10 hover:bg-white/25 rounded-full text-white transition-colors"
-                            onClick={closeLightbox}
+                            className="absolute top-6 right-6 z-[10000] w-12 h-12 flex items-center justify-center bg-white/10 hover:bg-[#E84797] rounded-full text-white transition-all duration-300 group"
+                            onClick={(e) => {
+                                e.stopPropagation();
+                                closeLightbox();
+                            }}
                         >
-                            <X className="w-6 h-6" />
+                            <X className="w-6 h-6 group-hover:rotate-90 transition-transform" />
                         </button>
 
                         {/* Navigation Arrows */}
                         {project.images.length > 1 && (
                             <>
                                 <button
-                                    className="absolute left-6 z-50 w-12 h-12 hidden md:flex items-center justify-center bg-white/10 hover:bg-white/25 rounded-full text-white transition-colors"
+                                    className="absolute left-6 z-[10000] w-14 h-14 hidden md:flex items-center justify-center bg-white/5 hover:bg-white/20 rounded-full text-white transition-all group"
                                     onClick={prevImage}
                                 >
-                                    <ChevronLeft className="w-6 h-6" />
+                                    <ChevronLeft className="w-8 h-8 group-hover:-translate-x-1 transition-transform" />
                                 </button>
                                 <button
-                                    className="absolute right-6 z-50 w-12 h-12 hidden md:flex items-center justify-center bg-white/10 hover:bg-white/25 rounded-full text-white transition-colors"
+                                    className="absolute right-6 z-[10000] w-14 h-14 hidden md:flex items-center justify-center bg-white/5 hover:bg-white/20 rounded-full text-white transition-all group"
                                     onClick={nextImage}
                                 >
-                                    <ChevronRight className="w-6 h-6" />
+                                    <ChevronRight className="w-8 h-8 group-hover:translate-x-1 transition-transform" />
                                 </button>
                             </>
                         )}
 
                         {/* Current Image */}
-                        <motion.img
+                        <motion.div
                             key={selectedImage}
-                            initial={{ opacity: 0, scale: 0.95 }}
-                            animate={{ opacity: 1, scale: 1 }}
-                            exit={{ opacity: 0, scale: 0.95 }}
-                            transition={{ duration: 0.3 }}
-                            src={selectedImage}
-                            alt="Fullscreen Portfolio"
-                            className="max-w-full max-h-full object-contain rounded-lg shadow-2xl"
-                            onClick={(e) => e.stopPropagation()} // Prevent click from closing
-                        />
+                            initial={{ opacity: 0, scale: 0.9, y: 20 }}
+                            animate={{ opacity: 1, scale: 1, y: 0 }}
+                            exit={{ opacity: 0, scale: 1.1, y: -20 }}
+                            transition={{ type: 'spring', damping: 25, stiffness: 200 }}
+                            className="relative max-w-5xl max-h-[85vh] flex items-center justify-center"
+                            onClick={(e) => e.stopPropagation()}
+                        >
+                            <img
+                                src={selectedImage}
+                                alt="Fullscreen Portfolio"
+                                className="max-w-full max-h-full object-contain rounded-lg shadow-[0_0_50px_rgba(0,0,0,0.5)] border border-white/10"
+                            />
+                        </motion.div>
 
                         {/* Image Counter */}
-                        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-white/70 text-sm font-medium tracking-widest bg-black/50 px-4 py-2 rounded-full backdrop-blur-md">
+                        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/90 text-xs font-bold tracking-[0.3em] bg-white/10 px-6 py-2.5 rounded-full backdrop-blur-md border border-white/5 uppercase">
                             {currentIndex + 1} / {project.images.length}
                         </div>
                     </motion.div>
