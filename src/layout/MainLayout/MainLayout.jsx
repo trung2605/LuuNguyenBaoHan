@@ -53,7 +53,7 @@ const MainLayout = () => {
             <Navigation />
 
             {/* ── Page Content with Premium Transitions ── */}
-            <main className="relative">
+            <main className="relative z-10">
                 <AnimatePresence mode="wait" initial={false}>
                     <motion.div
                         key={location.pathname}

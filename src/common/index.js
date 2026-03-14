@@ -13,6 +13,7 @@ import ShinyText from './ShinyText';
 import CloudinaryUploadWidget from './CloudinaryUploadWidget';
 import Squares from './Squares';
 import ScrollToTop from './ScrollToTop';
+import Portal from './Portal';
 
 export {
   SectionHeader
@@ -31,6 +32,9 @@ export {
 };
 export {
   ScrollToTop
+};
+export {
+  Portal
 };
 
 // ReactBits
