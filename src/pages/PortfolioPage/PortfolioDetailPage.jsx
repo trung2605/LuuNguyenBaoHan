@@ -63,6 +63,16 @@ const PortfolioDetailPage = () => {
         return () => window.removeEventListener('keydown', handleKeyDown);
     });
 
+    // Body scroll lock
+    useEffect(() => {
+        if (selectedImage) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = 'unset';
+        }
+        return () => { document.body.style.overflow = 'unset'; };
+    }, [selectedImage]);
+
     if (!project) return null;
 
     return (
@@ -179,12 +189,12 @@ const PortfolioDetailPage = () => {
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
-                        className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/98 backdrop-blur-2xl p-4 md:p-10"
+                        className="fixed inset-0 z-[9999] bg-black/98 backdrop-blur-2xl overflow-y-auto"
                         onClick={closeLightbox}
                     >
-                        {/* Close button */}
+                        {/* Close button - Fixed position so it's always accessible */}
                         <button
-                            className="absolute top-6 right-6 z-[10000] w-12 h-12 flex items-center justify-center bg-white/10 hover:bg-[#E84797] rounded-full text-white transition-all duration-300 group"
+                            className="fixed top-6 right-6 z-[10000] w-12 h-12 flex items-center justify-center bg-white/10 hover:bg-[#E84797] rounded-full text-white transition-all duration-300 group shadow-lg"
                             onClick={(e) => {
                                 e.stopPropagation();
                                 closeLightbox();
@@ -193,44 +203,53 @@ const PortfolioDetailPage = () => {
                             <X className="w-6 h-6 group-hover:rotate-90 transition-transform" />
                         </button>
 
-                        {/* Navigation Arrows */}
+                        {/* Navigation Arrows - Fixed position */}
                         {project.images.length > 1 && (
                             <>
                                 <button
-                                    className="absolute left-6 z-[10000] w-14 h-14 hidden md:flex items-center justify-center bg-white/5 hover:bg-white/20 rounded-full text-white transition-all group"
-                                    onClick={prevImage}
+                                    className="fixed left-6 top-1/2 -translate-y-1/2 z-[10000] w-14 h-14 hidden md:flex items-center justify-center bg-white/5 hover:bg-white/20 rounded-full text-white transition-all group"
+                                    onClick={(e) => {
+                                        e.stopPropagation();
+                                        prevImage();
+                                    }}
                                 >
                                     <ChevronLeft className="w-8 h-8 group-hover:-translate-x-1 transition-transform" />
                                 </button>
                                 <button
-                                    className="absolute right-6 z-[10000] w-14 h-14 hidden md:flex items-center justify-center bg-white/5 hover:bg-white/20 rounded-full text-white transition-all group"
-                                    onClick={nextImage}
+                                    className="fixed right-6 top-1/2 -translate-y-1/2 z-[10000] w-14 h-14 hidden md:flex items-center justify-center bg-white/5 hover:bg-white/20 rounded-full text-white transition-all group"
+                                    onClick={(e) => {
+                                        e.stopPropagation();
+                                        nextImage();
+                                    }}
                                 >
                                     <ChevronRight className="w-8 h-8 group-hover:translate-x-1 transition-transform" />
                                 </button>
                             </>
                         )}
 
-                        {/* Current Image */}
-                        <motion.div
-                            key={selectedImage}
-                            initial={{ opacity: 0, scale: 0.9, y: 20 }}
-                            animate={{ opacity: 1, scale: 1, y: 0 }}
-                            exit={{ opacity: 0, scale: 1.1, y: -20 }}
-                            transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-                            className="relative max-w-5xl max-h-[85vh] flex items-center justify-center"
-                            onClick={(e) => e.stopPropagation()}
-                        >
-                            <img
-                                src={selectedImage}
-                                alt="Fullscreen Portfolio"
-                                className="max-w-full max-h-full object-contain rounded-lg shadow-[0_0_50px_rgba(0,0,0,0.5)] border border-white/10"
-                            />
-                        </motion.div>
+                        {/* Image Container with Scrolling Capability */}
+                        <div className="min-h-screen py-20 px-4 md:px-20 flex items-center justify-center">
+                            <motion.div
+                                key={selectedImage}
+                                initial={{ opacity: 0, scale: 0.9, y: 20 }}
+                                animate={{ opacity: 1, scale: 1, y: 0 }}
+                                exit={{ opacity: 0, scale: 1.1, y: -20 }}
+                                transition={{ type: 'spring', damping: 25, stiffness: 200 }}
+                                className="relative max-w-6xl w-full flex flex-col items-center"
+                                onClick={(e) => e.stopPropagation()}
+                            >
+                                <img
+                                    src={selectedImage}
+                                    alt="Fullscreen Portfolio"
+                                    className="max-w-full h-auto rounded-lg shadow-[0_0_80px_rgba(0,0,0,0.6)] border border-white/5 mx-auto"
+                                    style={{ maxHeight: 'none' }} // Ensure no height constraint
+                                />
 
-                        {/* Image Counter */}
-                        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/90 text-xs font-bold tracking-[0.3em] bg-white/10 px-6 py-2.5 rounded-full backdrop-blur-md border border-white/5 uppercase">
-                            {currentIndex + 1} / {project.images.length}
+                                {/* Image Counter - Floating below image or fixed at bottom */}
+                                <div className="mt-8 text-white/90 text-xs font-bold tracking-[0.3em] bg-white/10 px-6 py-2.5 rounded-full backdrop-blur-md border border-white/5 uppercase">
+                                    {currentIndex + 1} / {project.images.length}
+                                </div>
+                            </motion.div>
                         </div>
                     </motion.div>
                 )}
