@@ -162,9 +162,13 @@ export const portfolioItems = [{
     tags: ["Portrait", "Lifestyle", "Da Nang"],
     color: "pink",
     images: [
-      "https://res.cloudinary.com/dvwt6npcl/image/upload/v1773481425/baohan_portfolio/C%C3%B3_em/IMG_2590.jpg",
-      "https://res.cloudinary.com/dvwt6npcl/image/upload/v1773481453/baohan_portfolio/C%C3%B3_em/IMG_2595.jpg",
-      "https://res.cloudinary.com/dvwt6npcl/image/upload/v1773481482/baohan_portfolio/C%C3%B3_em/IMG_2604.jpg"
+      "/projects/co_em/IMG_2590.JPG",
+      "/projects/co_em/IMG_2592.JPG",
+      "/projects/co_em/IMG_2595.JPG",
+      "/projects/co_em/IMG_2596.JPG",
+      "/projects/co_em/IMG_2603.JPG",
+      "/projects/co_em/IMG_2604.JPG",
+      "/projects/co_em/IMG_3396.JPG"
     ]
   },
   {
@@ -177,8 +181,14 @@ export const portfolioItems = [{
     tags: ["Editorial", "Da Nang", "Spring"],
     color: "blue",
     images: [
-      "https://res.cloudinary.com/dvwt6npcl/image/upload/v1773481573/baohan_portfolio/M%C3%B9a_tr%E1%BB%9F_v%E1%BB%81/IMG_4023.jpg",
-      "https://res.cloudinary.com/dvwt6npcl/image/upload/v1773481575/baohan_portfolio/M%C3%B9a_tr%E1%BB%9F_v%E1%BB%81/IMG_4027.jpg"
+      "/projects/mua_tro_ve/IMG_2747.PNG",
+      "/projects/mua_tro_ve/IMG_2787.PNG",
+      "/projects/mua_tro_ve/IMG_2795.PNG",
+      "/projects/mua_tro_ve/IMG_2892.JPG",
+      "/projects/mua_tro_ve/IMG_4023.jpeg",
+      "/projects/mua_tro_ve/IMG_4027.jpeg",
+      "/projects/mua_tro_ve/IMG_4050.jpeg",
+      "/projects/mua_tro_ve/IMG_7036.JPG"
     ]
   },
   {
@@ -191,13 +201,13 @@ export const portfolioItems = [{
     tags: ["Artistic", "Culture", "Poetry"],
     color: "pink",
     images: [
-      "https://res.cloudinary.com/dvwt6npcl/image/upload/v1773498890/baohan_portfolio/Giot_nang_ben_them/IMG_3327.jpg",
-      "https://res.cloudinary.com/dvwt6npcl/image/upload/v1773498893/baohan_portfolio/Giot_nang_ben_them/IMG_3328.jpg",
-      "https://res.cloudinary.com/dvwt6npcl/image/upload/v1773498895/baohan_portfolio/Giot_nang_ben_them/IMG_3329.jpg",
-      "https://res.cloudinary.com/dvwt6npcl/image/upload/v1773498896/baohan_portfolio/Giot_nang_ben_them/IMG_3330.jpg",
-      "https://res.cloudinary.com/dvwt6npcl/image/upload/v1773498898/baohan_portfolio/Giot_nang_ben_them/IMG_3387.jpg",
-      "https://res.cloudinary.com/dvwt6npcl/image/upload/v1773498909/baohan_portfolio/Giot_nang_ben_them/IMG_3390.jpg",
-      "https://res.cloudinary.com/dvwt6npcl/image/upload/v1773498902/baohan_portfolio/Giot_nang_ben_them/IMG_3391.jpg"
+      "/projects/giot_nang/IMG_3327.JPG",
+      "/projects/giot_nang/IMG_3328.JPG",
+      "/projects/giot_nang/IMG_3329.JPG",
+      "/projects/giot_nang/IMG_3330.JPG",
+      "/projects/giot_nang/IMG_3387.JPG",
+      "/projects/giot_nang/IMG_3390.JPG",
+      "/projects/giot_nang/IMG_3391.JPG"
     ]
   },
   {
@@ -210,11 +220,15 @@ export const portfolioItems = [{
     tags: ["Tet", "Da Nang", "Street Photography"],
     color: "blue",
     images: [
-      "https://res.cloudinary.com/dvwt6npcl/image/upload/v1773484762/baohan_portfolio/Ch%E1%BB%A3_H%C3%A0n_Ch%C3%BAt_T%E1%BA%BFt/DSC09049.jpg",
-      "https://res.cloudinary.com/dvwt6npcl/image/upload/v1773484765/baohan_portfolio/Ch%E1%BB%A3_H%C3%A0n_Ch%C3%BAt_T%E1%BA%BFt/DSC09054.jpg",
-      "https://res.cloudinary.com/dvwt6npcl/image/upload/v1773484768/baohan_portfolio/Ch%E1%BB%A3_H%C3%A0n_Ch%C3%BAt_T%E1%BA%BFt/DSC09056.jpg",
-      "https://res.cloudinary.com/dvwt6npcl/image/upload/v1773484792/baohan_portfolio/Ch%E1%BB%A3_H%C3%A0n_Ch%C3%BAt_T%E1%BA%BFt/IMG_3405.jpg",
-      "https://res.cloudinary.com/dvwt6npcl/image/upload/v1773484813/baohan_portfolio/Ch%E1%BB%A3_H%C3%A0n_Ch%C3%BAt_T%E1%BA%BFt/IMG_3414.jpg"
+      "/projects/cho_han/DSC09049.jpeg",
+      "/projects/cho_han/DSC09054.jpeg",
+      "/projects/cho_han/DSC09056.jpeg",
+      "/projects/cho_han/IMG_3398.JPG",
+      "/projects/cho_han/IMG_3399.JPG",
+      "/projects/cho_han/IMG_3400.JPG",
+      "/projects/cho_han/IMG_3405.JPG",
+      "/projects/cho_han/IMG_3412.JPG",
+      "/projects/cho_han/IMG_3414.JPG"
     ]
   }
 ];
