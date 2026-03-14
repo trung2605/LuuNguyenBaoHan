@@ -5,23 +5,23 @@ import MainLayout from './layout/MainLayout/MainLayout';
 
 // ── Pages ──────────────────────────────────────────────────
 import HomePage from './pages/HomePage/HomePage';
-import ExperiencePage from './pages/ExperiencePage/ExperiencePage';
-import SkillsPage from './pages/SkillsPage/SkillsPage';
+import SkillExperiencePage from './pages/SkillExperiencePage/SkillExperiencePage';
 import PortfolioPage from './pages/PortfolioPage/PortfolioPage';
 import PortfolioDetailPage from './pages/PortfolioPage/PortfolioDetailPage';
 import EducationPage from './pages/EducationPage/EducationPage';
+import { ScrollToTop } from './common';
 
 function App() {
   return (
     <ThemeContextProvider>
       <AppContextProvider>
         <Router>
+          <ScrollToTop />
           <div className="App">
             <Routes>
               <Route path="/" element={<MainLayout />}>
                 <Route index element={<HomePage />} />
-                <Route path="experience" element={<ExperiencePage />} />
-                <Route path="skills" element={<SkillsPage />} />
+                <Route path="experience" element={<SkillExperiencePage />} />
                 <Route path="portfolio" element={<PortfolioPage />} />
                 <Route path="portfolio/:id" element={<PortfolioDetailPage />} />
                 <Route path="education" element={<EducationPage />} />

@@ -14,9 +14,9 @@ import { hoverScale } from '../animations/variants';
  *   children   — button content
  */
 const variants = {
-    primary: `bg-[#203F9A] text-white hover:bg-[#E84797] shadow-md hover:shadow-lg`,
-    outline: `border-2 border-[#203F9A] text-[#203F9A] hover:bg-[#203F9A] hover:text-white`,
-    ghost: `text-[#203F9A] hover:bg-[#94C2DA]/20`,
+    primary: `bg-[#203F9A] text-white hover:bg-[#E84797] shadow-md hover:shadow-lg dark:bg-[#94C2DA] dark:text-[#203F9A] dark:hover:bg-[#E7A0CC]`,
+    outline: `border-2 border-[#203F9A] text-[#203F9A] hover:bg-[#203F9A] hover:text-white dark:border-[#94C2DA] dark:text-[#94C2DA] dark:hover:bg-[#94C2DA] dark:hover:text-[#203F9A]`,
+    ghost: `text-[#203F9A] hover:bg-[#94C2DA]/20 dark:text-[#94C2DA] dark:hover:bg-white/10`,
 };
 
 const sizes = {

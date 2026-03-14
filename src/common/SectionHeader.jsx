@@ -25,12 +25,12 @@ const SectionHeader = ({
             className={`mb-12 md:mb-16 ${centered ? 'text-center' : ''} ${className}`}
         >
             {eyebrow && (
-                <p className="text-[#E84797] font-semibold text-sm uppercase tracking-widest mb-3">
+                <p className="text-[#E84797] dark:text-[#E7A0CC] font-semibold text-sm uppercase tracking-widest mb-3">
                     {eyebrow}
                 </p>
             )}
 
-            <h2 className="font-display font-bold text-4xl md:text-5xl text-[#203F9A] mb-4 leading-tight">
+            <h2 className="font-display font-bold text-4xl md:text-5xl text-[#203F9A] dark:text-white mb-4 leading-tight">
                 {title}
             </h2>
 
@@ -42,7 +42,7 @@ const SectionHeader = ({
             </div>
 
             {subtitle && (
-                <p className={`text-gray-500 text-base md:text-lg leading-relaxed ${centered ? 'max-w-2xl mx-auto' : 'max-w-2xl'}`}>
+                <p className={`text-gray-500 dark:text-gray-300 text-base md:text-lg leading-relaxed ${centered ? 'max-w-2xl mx-auto' : 'max-w-2xl'}`}>
                     {subtitle}
                 </p>
             )}

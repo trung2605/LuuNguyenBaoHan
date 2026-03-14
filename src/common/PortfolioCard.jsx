@@ -37,11 +37,11 @@ const PortfolioCard = ({ item, index, noShadow = false }) => {
     return (
         <div
             onClick={() => navigate(`/portfolio/${item.id}`)}
-            className={`cursor-pointer group h-full flex flex-col transition-all duration-300 ${noShadow ? '' : 'rounded-2xl bg-white shadow-sm border border-gray-100 hover:shadow-xl hover:-translate-y-2'
+            className={`cursor-pointer group h-full flex flex-col transition-all duration-300 ${noShadow ? '' : 'rounded-2xl bg-white dark:bg-slate-800 shadow-sm border border-gray-100 dark:border-slate-700 hover:shadow-xl hover:-translate-y-2'
                 }`}
         >
             {/* Visual */}
-            <div className={`relative h-56 bg-gradient-to-br ${gradient} flex flex-col items-center justify-center overflow-hidden bg-gray-100`}>
+            <div className={`relative h-56 bg-gradient-to-br ${gradient} flex flex-col items-center justify-center overflow-hidden bg-gray-100 dark:bg-slate-900`}>
                 {firstImage ? (
                     <img
                         src={firstImage}
@@ -73,17 +73,17 @@ const PortfolioCard = ({ item, index, noShadow = false }) => {
             </div>
 
             {/* Content */}
-            <div className="p-5 flex flex-col flex-1 bg-white">
+            <div className="p-5 flex flex-col flex-1 bg-white dark:bg-slate-800/80 rounded-b-2xl">
                 <span className={`inline-block text-xs font-semibold px-3 py-1 rounded-full mb-3 ${colors.bg} ${colors.text}`}>
                     {item.category}
                 </span>
-                <h3 className="font-bold text-[#203F9A] text-lg mb-2 font-display group-hover:text-[#E84797] transition-colors duration-300">
+                <h3 className="font-bold text-[#203F9A] dark:text-gray-100 text-lg mb-2 font-display group-hover:text-[#E84797] dark:group-hover:text-[#E7A0CC] transition-colors duration-300">
                     {item.title}
                 </h3>
-                <p className="text-gray-500 text-sm leading-relaxed flex-1 mb-4">{item.description}</p>
+                <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed flex-1 mb-4">{item.description}</p>
                 <div className="flex flex-wrap gap-2">
                     {item.tags.map((tag) => (
-                        <span key={tag} className="text-xs bg-[#EFE8E0] text-gray-500 px-3 py-1 rounded-full">
+                        <span key={tag} className="text-xs bg-[#EFE8E0] dark:bg-slate-700 text-gray-500 dark:text-gray-300 px-3 py-1 rounded-full">
                             #{tag}
                         </span>
                     ))}

@@ -41,26 +41,34 @@ const Navigation = () => {
     return (
         <nav
             className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled
-                ? 'bg-[#fff]/95 backdrop-blur-md shadow-md py-3'
+                ? 'bg-white/95 dark:bg-[#0f172a]/95 backdrop-blur-md shadow-md py-3'
                 : 'bg-transparent py-5'
                 }`}
         >
             <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
 
                 {/* ── Logo ── */}
-                <NavLink to="/" className="flex items-center gap-2 group" aria-label="Home">
+                <NavLink to="/" className="flex items-center gap-3 group" aria-label="Home">
                     <motion.div
-                        whileHover={{ rotate: 15, scale: 1.1 }}
+                        whileHover={{ rotate: 10, scale: 1.1 }}
                         transition={{ type: 'spring', stiffness: 400, damping: 15 }}
-                        className="w-9 h-9 rounded-full bg-[#203F9A] flex items-center justify-center
-                       group-hover:bg-[#E84797] transition-colors duration-300"
+                        className="relative w-11 h-11 flex items-center justify-center"
                     >
-                        <Camera className="w-5 h-5 text-white" />
+                        <div className="absolute inset-0 bg-[#203F9A]/10 dark:bg-[#94C2DA]/10 rounded-xl rotate-6 group-hover:rotate-12 transition-transform" />
+                        <img
+                            src="/camera.svg"
+                            alt="Logo"
+                            className="w-9 h-9 relative z-10"
+                        />
                     </motion.div>
-                    <span className="font-display font-bold text-[#203F9A] text-lg hidden sm:block
-                           group-hover:text-[#E84797] transition-colors duration-300">
-                        Bảo Hân
-                    </span>
+                    <div className="flex flex-col">
+                        <span className="font-display font-bold text-[#203F9A] dark:text-white text-lg leading-tight group-hover:text-[#E84797] transition-colors">
+                            Bảo Hân
+                        </span>
+                        <span className="text-[10px] font-bold tracking-[0.2em] text-[#E84797] uppercase leading-none opacity-80">
+                            Portfolio
+                        </span>
+                    </div>
                 </NavLink>
 
                 {/* ── Desktop Links ── */}
@@ -73,8 +81,8 @@ const Navigation = () => {
                                 onClick={() => handleNavClick(section.path)}
                                 className={({ isActive }) =>
                                     `relative px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${(isActive && !section.path.includes('#')) || (section.path.includes('#') && location.hash === section.hash)
-                                        ? 'text-[#203F9A] bg-[#94C2DA]/25'
-                                        : 'text-gray-600 hover:text-[#203F9A] hover:bg-[#94C2DA]/15'
+                                        ? 'text-[#203F9A] dark:text-white bg-[#94C2DA]/25 dark:bg-[#94C2DA]/20'
+                                        : 'text-gray-600 dark:text-white hover:text-[#203F9A] dark:hover:text-white hover:bg-[#94C2DA]/15 dark:hover:bg-white/5'
                                     }`
                                 }
                             >
@@ -134,7 +142,7 @@ const Navigation = () => {
                         animate={{ opacity: 1, height: 'auto' }}
                         exit={{ opacity: 0, height: 0 }}
                         transition={{ duration: 0.3, ease: 'easeInOut' }}
-                        className="md:hidden overflow-hidden bg-[#EFE8E0]/98 backdrop-blur-md border-t border-[#94C2DA]/30"
+                        className="md:hidden overflow-hidden bg-[#EFE8E0]/98 dark:bg-[#0f172a]/98 backdrop-blur-md border-t border-[#94C2DA]/30 dark:border-white/10"
                     >
                         <div className="px-6 py-4 space-y-1">
                             {sections.map((section) => (
@@ -143,7 +151,7 @@ const Navigation = () => {
                                     to={section.path}
                                     onClick={() => handleNavClick(section.path)}
                                     className={({ isActive }) =>
-                                        `block px-4 py-3 rounded-xl text-sm font-medium transition-all duration-200 ${isActive ? 'text-[#203F9A] bg-[#94C2DA]/25' : 'text-gray-600 hover:text-[#203F9A] hover:bg-[#94C2DA]/15'
+                                        `block px-4 py-3 rounded-xl text-sm font-medium transition-all duration-200 ${isActive ? 'text-[#203F9A] dark:text-white bg-[#94C2DA]/25 dark:bg-[#94C2DA]/20' : 'text-gray-600 dark:text-white hover:text-[#203F9A] dark:hover:text-white hover:bg-[#94C2DA]/15 dark:hover:bg-white/5'
                                         }`
                                     }
                                 >

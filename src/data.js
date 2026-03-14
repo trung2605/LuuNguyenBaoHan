@@ -5,16 +5,23 @@
 export const personalInfo = {
   name: "Luu Nguyen Bao Han",
   nameVi: "Lưu Nguyễn Bảo Hân",
-  roles: ["Media Specialist", "Photographer", "Content Creator"],
+  roles: ["Media Position", "Photographer", "Personal Branding"],
   tagline: "Capturing stories through the lens of creativity.",
-  bio: "A passionate media professional and photographer based in Vietnam with a keen eye for visual storytelling. I blend technical expertise with artistic vision to create compelling content that resonates and inspires audiences across platforms.",
-  email: "lunguyenbaohan@email.com",
-  phone: "+84 xxx xxx xxxx",
-  location: "Ho Chi Minh City, Vietnam",
+  bio: "I am really look forward to gaining more experience from my seniors in event execution, collaboration (teamwork), and particularly in photo post-processing skills.",
+  email: "baohan08112007@gmail.com",
+  phone: "(+84) 916081107",
+  location: "Binh Thanh, Ho Chi Minh City",
   linkedin: "https://linkedin.com/in/lunguyenbaohan",
-  instagram: "https://instagram.com/lunguyenbaohan",
+  instagram: "https://instagram.com/lngbhan_",
+  website: "https://luu-nguyen-bao-han.vercel.app",
   avatarUrl: "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/baohan_portfolio/avatar",
-  avatarAlt: "Luu Nguyen Bao Han — Media & Photography Professional",
+  avatarAlt: "Luu Nguyễn Bảo Hân — Media & Photography Professional",
+  interests: [
+    "Preserving memories through photography (yearbooks, weddings, Tet shoots)",
+    "Media skills & Graphic design",
+    "Personal branding & Social trends",
+    "Motorbike touring & World traveling"
+  ]
 };
 
 export const navLinks = [{
@@ -22,12 +29,8 @@ export const navLinks = [{
     href: "#about"
   },
   {
-    label: "Experience",
+    label: "Skill & Experience",
     href: "#experience"
-  },
-  {
-    label: "Skills",
-    href: "#skills"
   },
   {
     label: "Portfolio",
@@ -44,112 +47,67 @@ export const navLinks = [{
 ];
 
 export const stats = [{
-    value: "3+",
-    label: "Years Experience"
-  },
-  {
-    value: "50+",
-    label: "Projects Completed"
-  },
-  {
-    value: "15+",
-    label: "Happy Clients"
-  },
-  {
     value: "1K+",
     label: "Photos Taken"
+  },
+  {
+    value: "150+",
+    label: "@nahs.album Followers"
+  },
+  {
+    value: "1,000+",
+    label: "Instagram Followers"
+  },
+  {
+    value: "City-Level",
+    label: "Academic Awards"
   },
 ];
 
 export const experiences = [{
     id: 1,
-    role: "Media Coordinator",
-    company: "Creative Vision Agency",
-    type: "Full-time",
-    period: "Jan 2023 – Present",
-    location: "Ho Chi Minh City",
-    description: "Lead multimedia production for brand campaigns, managing a team of content creators. Oversee photo/video shoots, edit final deliverables, and maintain brand consistency across all channels.",
+    role: "Photographer",
+    company: "Freelance / Self-Project",
+    type: "Freelance",
+    period: "Apr 2025 – Present",
+    location: "Vietnam",
+    description: "Operating digital and film cameras, specializing in photography and videography with a focus on high-quality visual storytelling.",
     achievements: [
-      "Increased social media engagement by 45% through strategic content planning",
-      "Produced 20+ brand campaigns for major clients in fashion and F&B sectors",
-      "Implemented a new content workflow reducing production time by 30%",
+      "Nearly a year of hands-on experience in both photography and videography",
+      "Created @nahs.album (Instagram); grew to 150+ followers within two months",
+      "Leveraged personal branding and social media growth strategies to enhance project reach",
     ],
     color: "blue",
   },
   {
     id: 2,
-    role: "Freelance Photographer",
-    company: "Self-employed",
+    role: "Personal Branding",
+    company: "Social Media Channels",
     type: "Freelance",
-    period: "Jun 2021 – Present",
-    location: "Vietnam",
-    description: "Provide professional photography services for events, portraits, products, and editorial shoots. Deliver polished, publication-ready images with expert post-processing.",
-    achievements: [
-      "Shot 30+ weddings and private events with consistent 5-star reviews",
-      "Built a diverse portfolio spanning fashion, portrait, and commercial photography",
-      "Developed signature editing style recognized by local publications",
-    ],
-    color: "pink",
-  },
-  {
-    id: 3,
-    role: "Content Creator & Social Media Executive",
-    company: "Bloom Digital Studio",
-    type: "Full-time",
-    period: "Mar 2020 – Dec 2022",
+    period: "2023 – Present",
     location: "Ho Chi Minh City",
-    description: "Produced engaging video and photo content for brand social media channels. Handled scriptwriting, filming, editing, and publishing across Instagram, TikTok, and YouTube.",
+    description: "Strategizing and executing personal branding across major social media platforms like Instagram and TikTok.",
     achievements: [
-      "Grew a brand Instagram account from 2K to 25K followers in 12 months",
-      "Created viral content pieces achieving 500K+ combined views",
-      "Collaborated with 10+ influencers on integrated campaigns",
-    ],
-    color: "blue",
-  },
-  {
-    id: 4,
-    role: "Photography Intern",
-    company: "The Frame Studio",
-    type: "Internship",
-    period: "Sep 2019 – Feb 2020",
-    location: "Ho Chi Minh City",
-    description: "Assisted senior photographers on commercial shoots, learned studio lighting techniques, and supported post-production workflows.",
-    achievements: [
-      "Assisted in 15+ commercial studio shoots",
-      "Mastered lighting setups: softbox, ring light, and three-point lighting",
-      "Handled photo culling and basic retouching in Lightroom",
+      "Manage a personal Instagram profile with 1,000+ followers",
+      "Skilled in building a consistent social media presence and visual identity",
+      "Maintained a keen awareness of contemporary social trends to stay relevant",
     ],
     color: "pink",
   },
 ];
 
 export const skillCategories = [{
-    title: "Photography",
+    title: "Core Expertise",
     icon: "Camera",
     skills: [
-      "Portrait Photography",
-      "Event Photography",
-      "Product Photography",
-      "Editorial Shoots",
-      "Studio Lighting",
-      "Outdoor & Natural Light",
-      "Wedding Photography",
+      "Communication Skill",
+      "Photo Post-processing Skill",
+      "AI Applications Skill",
+      "Digital & Film Photography",
+      "Videography",
+      "Social Media Strategy",
     ],
     palette: "blue",
-  },
-  {
-    title: "Media & Content",
-    icon: "Film",
-    skills: [
-      "Video Production",
-      "Script Writing",
-      "Content Strategy",
-      "Social Media Management",
-      "Brand Storytelling",
-      "Reel Editing",
-      "Visual Direction",
-    ],
-    palette: "pink",
   },
   {
     title: "Software & Tools",
@@ -157,27 +115,20 @@ export const skillCategories = [{
     skills: [
       "Adobe Lightroom",
       "Adobe Photoshop",
-      "Adobe Premiere Pro",
-      "DaVinci Resolve",
-      "Canva Pro",
       "CapCut",
-      "Google Analytics",
-    ],
-    palette: "blue",
-  },
-  {
-    title: "Soft Skills",
-    icon: "Star",
-    skills: [
-      "Creative Direction",
-      "Client Communication",
-      "Team Leadership",
-      "Time Management",
-      "Attention to Detail",
-      "Problem Solving",
-      "Bilingual (EN/VI)",
+      "Instagram / TikTok Management",
+      "Personal Branding Tools",
     ],
     palette: "pink",
+  },
+  {
+    title: "Languages",
+    icon: "Star",
+    skills: [
+      "Vietnamese (Native)",
+      "English (IELTS 6.0)",
+    ],
+    palette: "blue",
   },
 ];
 
@@ -185,8 +136,10 @@ export const portfolioItems = [{
     id: 1,
     title: "Chạm Vào Di Sản (Touching Heritage)",
     category: "Photography & Culture",
-    description: "Một dự án nhiếp ảnh đầy cảm xúc, bắt trọn và lưu giữ vẻ đẹp sâu sắc của di sản văn hóa. Tái hiện lại những khoảnh khắc chân thực và các giá trị truyền thống vượt thời gian qua góc nhìn tài liệu tinh tế.",
-    tags: ["Documentary", "Culture", "Heritage"],
+    period: "23/02/2026 - 28/02/2026",
+    link: "https://surl.li/ctszgm",
+    description: "Tà áo dài, từ lâu đã được xem là di sản của dân tộc Việt Nam. Qua nhiều thời kì, từng mảnh lụa là khẽ lay động từng nấc thang thời gian. Chạm vào áo dài, khăn rằn, ta như chạm vào hơi thở văn hoá đang lắng đọng trong từng nếp vải. \"Chạm vào di sản\" ghi lại sự hoà mình của nhịp sống trẻ vào những giá trị xưa cũ, vẫn đang trường tồn và trân quý đến mãi về sau. Ở đó, ta tìm thấy bản sắc mình, vừa vặn và bình yên giữa dòng chảy ngàn năm.",
+    tags: ["Culture", "Heritage", "Traditional"],
     color: "blue",
     images: [
       "https://res.cloudinary.com/dvwt6npcl/image/upload/v1773481393/baohan_portfolio/Ch%E1%BA%A1m_v%C3%A0o_di_s%E1%BA%A3n/DSC09426.jpg",
@@ -203,8 +156,10 @@ export const portfolioItems = [{
     id: 2,
     title: "Có Em (With You)",
     category: "Portraiture & Lifestyle",
-    description: "Một chuỗi các bức ảnh chân dung kết hợp ánh sáng tự nhiên, nhẹ nhàng khám phá vẻ đẹp của thanh xuân, sự gắn kết và những cảm xúc tinh tế. Một câu chuyện bằng hình ảnh đầy chất thơ về người đồng hành.",
-    tags: ["Portrait", "Natural Light", "Lifestyle"],
+    period: "03/02/2026 - 07/02/2026",
+    link: "https://surl.li/xfmazl",
+    description: "\"Có em\" ghi lại những khoảnh khắc đáng nhớ của đôi bạn trẻ sau hàng tháng trời xa cách. Người con trai vẫn ở nơi ấy, nơi thành phố Đà Nẵng thân thuộc của cả hai, chờ người con gái của anh trở về. \"Có em\" sau hàng nghìn dặm xa cách là từng mảnh kí ức bên nhau quý giá nhất mà cả hai vẫn luôn ngóng chờ bấy lâu.",
+    tags: ["Portrait", "Lifestyle", "Da Nang"],
     color: "pink",
     images: [
       "https://res.cloudinary.com/dvwt6npcl/image/upload/v1773481425/baohan_portfolio/C%C3%B3_em/IMG_2590.jpg",
@@ -216,8 +171,10 @@ export const portfolioItems = [{
     id: 3,
     title: "Mùa Trở Về (Season of Return)",
     category: "Editorial Photography",
-    description: "Bộ ảnh mang màu sắc rực rỡ pha lẫn chút tĩnh lặng, nắm bắt trọn vẹn tinh hoa của hoài niệm và khoảnh khắc chuyển giao của đất trời qua lăng kính, bố cục và sự sắp đặt đầy nghệ thuật.",
-    tags: ["Editorial", "Fashion", "Nostalgia"],
+    period: "10/02/2026 - 14/02/2026",
+    link: "https://surl.li/funste",
+    description: "Bôn ba khắp chốn xa quê nhà ,chẳng bằng giây phút được kề cạnh bên nhau. Giữa cái tấp nập, rộn ràng của chốn Đà Thành ngày sang xuân, có mảnh tình dừng lại gom nhặt từng vụn sáng bình yên. Họ đi không chỉ đi sắm Tết, mà để gói lại từng khoảnh khắc quý giá nhất cùng nhau vào thước phim \"mùa trở về\"\n\nĐà Nẵng - nơi nét nên chuyện tình đôi ta",
+    tags: ["Editorial", "Da Nang", "Spring"],
     color: "blue",
     images: [
       "https://res.cloudinary.com/dvwt6npcl/image/upload/v1773481573/baohan_portfolio/M%C3%B9a_tr%E1%BB%9F_v%E1%BB%81/IMG_4023.jpg",
@@ -226,46 +183,65 @@ export const portfolioItems = [{
   },
   {
     id: 4,
-    title: "Miscellaneous Creations",
-    category: "Creative Photography",
-    description: "Một bộ sưu tập chọn lọc bao gồm những tác phẩm thử nghiệm đa dạng, những cái chớp mắt ngẫu hứng và các phong cách chụp từ nghệ thuật đường phố nhẹ nhàng tới cách phối màu đầy táo bạo.",
-    tags: ["Experimental", "Street", "Eclectic"],
+    title: "Giọt Nắng Bên Thềm",
+    category: "Personal Project",
+    period: "14/02/2026 - 18/02/2026",
+    link: "https://surl.li/iwgkwt",
+    description: "Nón lá nghiêng che nửa khuôn mặt\nGiấu chút tình riêng, thẹn thùng trong mắt\nHay là sợ, nắng vô tình chạm tới\nGiọt tình nồng, ta cất giữ cho nhau?",
+    tags: ["Artistic", "Culture", "Poetry"],
     color: "pink",
     images: [
-      "https://res.cloudinary.com/dvwt6npcl/image/upload/v1773481607/baohan_portfolio/other/DSC09049.jpg",
-      "https://res.cloudinary.com/dvwt6npcl/image/upload/v1773481609/baohan_portfolio/other/DSC09054.jpg",
-      "https://res.cloudinary.com/dvwt6npcl/image/upload/v1773481611/baohan_portfolio/other/DSC09056.jpg",
-      "https://res.cloudinary.com/dvwt6npcl/image/upload/v1773481674/baohan_portfolio/other/IMG_3405.jpg",
-      "https://res.cloudinary.com/dvwt6npcl/image/upload/v1773481684/baohan_portfolio/other/IMG_3414.jpg"
+      "https://res.cloudinary.com/dvwt6npcl/image/upload/v1773498890/baohan_portfolio/Giot_nang_ben_them/IMG_3327.jpg",
+      "https://res.cloudinary.com/dvwt6npcl/image/upload/v1773498893/baohan_portfolio/Giot_nang_ben_them/IMG_3328.jpg",
+      "https://res.cloudinary.com/dvwt6npcl/image/upload/v1773498895/baohan_portfolio/Giot_nang_ben_them/IMG_3329.jpg",
+      "https://res.cloudinary.com/dvwt6npcl/image/upload/v1773498896/baohan_portfolio/Giot_nang_ben_them/IMG_3330.jpg",
+      "https://res.cloudinary.com/dvwt6npcl/image/upload/v1773498898/baohan_portfolio/Giot_nang_ben_them/IMG_3387.jpg",
+      "https://res.cloudinary.com/dvwt6npcl/image/upload/v1773498909/baohan_portfolio/Giot_nang_ben_them/IMG_3390.jpg",
+      "https://res.cloudinary.com/dvwt6npcl/image/upload/v1773498902/baohan_portfolio/Giot_nang_ben_them/IMG_3391.jpg"
+    ]
+  },
+  {
+    id: 5,
+    title: "Chợ Hàn, Chút Tết",
+    category: "Life & Street Photography",
+    period: "15/02/2026 - 17/02/2026",
+    link: "https://surl.li/bedsan",
+    description: "Lại một mùa xuân ghé đến, chợ Hàn đón các nàng thơ xúng xính trong tà áo dài thướt tha. Chậm lại từng bước qua những con phố thân quen, có tiếng xích lô lạch cạch chở theo cả một bầu trời xuân sớm. \"Chợ Hàn, chút Tết\" để lại hình bóng hai cô gái nhỏ gói ghém chút hương xuân vào từng khung hình. Giữ khoảng trời thanh xuân mãi rạng rỡ dưới ánh hoàng hôn đổ bóng.",
+    tags: ["Tet", "Da Nang", "Street Photography"],
+    color: "blue",
+    images: [
+      "https://res.cloudinary.com/dvwt6npcl/image/upload/v1773484762/baohan_portfolio/Ch%E1%BB%A3_H%C3%A0n_Ch%C3%BAt_T%E1%BA%BFt/DSC09049.jpg",
+      "https://res.cloudinary.com/dvwt6npcl/image/upload/v1773484765/baohan_portfolio/Ch%E1%BB%A3_H%C3%A0n_Ch%C3%BAt_T%E1%BA%BFt/DSC09054.jpg",
+      "https://res.cloudinary.com/dvwt6npcl/image/upload/v1773484768/baohan_portfolio/Ch%E1%BB%A3_H%C3%A0n_Ch%C3%BAt_T%E1%BA%BFt/DSC09056.jpg",
+      "https://res.cloudinary.com/dvwt6npcl/image/upload/v1773484792/baohan_portfolio/Ch%E1%BB%A3_H%C3%A0n_Ch%C3%BAt_T%E1%BA%BFt/IMG_3405.jpg",
+      "https://res.cloudinary.com/dvwt6npcl/image/upload/v1773484813/baohan_portfolio/Ch%E1%BB%A3_H%C3%A0n_Ch%C3%BAt_T%E1%BA%BFt/IMG_3414.jpg"
     ]
   }
 ];
 
-
 export const education = [{
     id: 1,
-    degree: "Bachelor of Communications & Media Studies",
-    institution: "Ho Chi Minh City University of Social Sciences and Humanities",
-    period: "2016 – 2020",
-    grade: "GPA: 3.4 / 4.0",
-    description: "Specialized in Journalism & Mass Communication, with elective focus on visual media and digital marketing.",
+    degree: "Bachelor of Business (Marketing)",
+    institution: "Western Sydney University Vietnam",
+    period: "2025 – 2028",
+    grade: "GPA: Processing",
+    description: "Currently studying in semester 1 stage 1. Focus on marketing strategies and international business environments.",
     highlights: [
-      "Graduated with Distinction",
-      "Led the student Media Club for 2 years",
-      "Thesis on 'Visual Storytelling in Digital Branding'",
+      "Successfully passed EAP5 class",
+      "Focus on contemporary marketing and business development",
     ],
   },
   {
     id: 2,
-    degree: "Professional Photography Certificate",
-    institution: "RMIT Vietnam — Creative Arts Faculty",
-    period: "2021",
+    degree: "High School Diploma",
+    institution: "Phan Chau Trinh High School, Da Nang City",
+    period: "2022 – 2025",
     grade: "Distinction",
-    description: "Intensive professional photography program covering technical skills, studio practice, and commercial photography.",
+    description: "Completed the national high school programme with excellent academic standing.",
     highlights: [
-      "Studio lighting mastery",
-      "Commercial and editorial workflows",
-      "Best Portfolio Award — graduating cohort",
+      "GPA grade 10, 11: >8.0",
+      "GPA grade 12: >9.0",
+      "Achieved multiple academic excellence awards during study",
     ],
   },
 ];

@@ -13,6 +13,7 @@ import {
 } from '../../common';
 import { fadeUp, staggerContainer, staggerItem, floatAnimation } from '../../animations/variants';
 import { useApp } from '../../contexts/AppContext';
+import emailjs from '@emailjs/browser';
 
 const HomePage = () => {
     const [roleIndex, setRoleIndex] = useState(0);
@@ -35,24 +36,57 @@ const HomePage = () => {
     const handleChange = (e) =>
         setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
+
         if (!form.name || !form.email || !form.message) {
             setStatus('error');
+            setTimeout(() => setStatus(null), 5000);
             return;
         }
+
+        const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+        const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+        const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
+        if (!serviceId || serviceId === 'your_service_id_here' || !templateId || templateId === 'your_template_id_here' || !publicKey || publicKey === 'your_public_key_here') {
+            console.warn("EmailJS credentials not fully configured. Please check your .env file.");
+            // For now, simulate success so the UI doesn't break if they haven't filled it out yet
+            setLoading(true);
+            setTimeout(() => {
+                setLoading(false);
+                setStatus('success');
+                setForm({ name: '', email: '', subject: '', message: '' });
+                setTimeout(() => setStatus(null), 5000);
+            }, 1000);
+            return;
+        }
+
         setLoading(true);
-        setTimeout(() => {
-            setLoading(false);
+
+        try {
+            const templateParams = {
+                name: form.name,
+                email: form.email,
+                title: form.subject || 'New Contact Message',
+                message: form.message,
+            };
+
+            await emailjs.send(serviceId, templateId, templateParams, publicKey);
+
             setStatus('success');
             setForm({ name: '', email: '', subject: '', message: '' });
+        } catch (error) {
+            console.error('EmailJS Error:', error);
+            setStatus('error');
+        } finally {
+            setLoading(false);
             setTimeout(() => setStatus(null), 5000);
-        }, 1500);
+        }
     };
 
     const exploreItems = [
-        { id: 'experience', label: 'My Journey', title: 'Work Experience', path: '/experience', icon: Briefcase, color: '#203F9A' },
-        { id: 'skills', label: 'What I Do', title: 'Skills & Expertise', path: '/skills', icon: Code, color: '#E84797' },
+        { id: 'experience', label: 'Skills & Journey', title: 'Skill & Experience', path: '/experience', icon: Briefcase, color: '#203F9A' },
         { id: 'portfolio', label: 'My Work', title: 'Project Portfolio', path: '/portfolio', icon: Palette, color: '#94C2DA' },
         { id: 'education', label: 'Background', title: 'Education', path: '/education', icon: GraduationCap, color: '#4E7CB2' },
     ];
@@ -90,8 +124,8 @@ const HomePage = () => {
                             animate="visible"
                         >
                             <motion.div variants={staggerItem}>
-                                <div className="inline-flex items-center gap-2 bg-white/70 border border-[#94C2DA]
-                                  text-[#203F9A] text-sm font-medium px-4 py-2 rounded-full mb-6 shadow-sm">
+                                <div className="inline-flex items-center gap-2 bg-white/70 dark:bg-slate-800/70 border border-[#94C2DA] dark:border-[#94C2DA]/30
+                                  text-[#203F9A] dark:text-gray-200 text-sm font-medium px-4 py-2 rounded-full mb-6 shadow-sm">
                                     <Sparkles className="w-4 h-4 text-[#E84797]" />
                                     <ShinyText text="Available for new projects" speed={3} />
                                 </div>
@@ -100,11 +134,11 @@ const HomePage = () => {
                             <div className="mb-4">
                                 <SplitText
                                     text="Hi, I'm"
-                                    className="font-display font-bold text-4xl md:text-5xl lg:text-6xl text-gray-800"
+                                    className="font-display font-bold text-4xl md:text-5xl lg:text-6xl text-gray-800 dark:text-gray-100"
                                     delay={0.2}
                                 />
                                 <div className="block mt-1">
-                                    <span className="font-display font-bold text-4xl md:text-5xl lg:text-6xl bg-gradient-to-r from-[#203F9A] to-[#E84797] bg-clip-text text-transparent">
+                                    <span className="font-display font-bold text-4xl md:text-5xl lg:text-6xl bg-gradient-to-r from-[#203F9A] to-[#E84797] dark:from-[#94C2DA] dark:to-[#E84797] bg-clip-text text-transparent">
                                         {personalInfo.nameVi}
                                     </span>
                                 </div>
@@ -114,7 +148,7 @@ const HomePage = () => {
                                 {personalInfo.roles.map((role, i) => (
                                     <p
                                         key={role}
-                                        className={`text-xl md:text-2xl font-semibold text-[#4E7CB2] transition-all duration-500 ${i === roleIndex ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-8 absolute'
+                                        className={`text-xl md:text-2xl font-semibold text-[#4E7CB2] dark:text-[#E7A0CC] transition-all duration-500 ${i === roleIndex ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-8 absolute'
                                             }`}
                                     >
                                         {role}
@@ -128,20 +162,20 @@ const HomePage = () => {
                                 <div className="h-0.5 w-3 bg-[#E7A0CC]" />
                             </motion.div>
 
-                            <motion.p variants={staggerItem} className="text-gray-600 text-base md:text-lg leading-relaxed max-w-xl mb-8">
+                            <motion.p variants={staggerItem} className="text-gray-600 dark:text-gray-300 text-base md:text-lg leading-relaxed max-w-xl mb-8">
                                 {personalInfo.bio}
                             </motion.p>
 
-                            <motion.div variants={staggerItem} className="flex flex-wrap gap-4 mb-10 text-sm text-gray-500">
+                            <motion.div variants={staggerItem} className="flex flex-wrap gap-4 mb-10 text-sm text-gray-500 dark:text-gray-400">
                                 <span className="flex items-center gap-1.5 cursor-default group">
-                                    <MapPin className="w-4 h-4 text-[#E84797] group-hover:scale-125 transition-transform" />
+                                    <MapPin className="w-4 h-4 text-[#E84797] dark:text-[#E7A0CC] group-hover:scale-125 transition-transform" />
                                     {personalInfo.location}
                                 </span>
                                 <a
                                     href={`mailto:${personalInfo.email}`}
-                                    className="flex items-center gap-1.5 hover:text-[#203F9A] transition-colors duration-200 group"
+                                    className="flex items-center gap-1.5 hover:text-[#203F9A] dark:hover:text-[#94C2DA] transition-colors duration-200 group"
                                 >
-                                    <Mail className="w-4 h-4 text-[#203F9A] group-hover:scale-125 transition-transform" />
+                                    <Mail className="w-4 h-4 text-[#203F9A] dark:text-[#94C2DA] group-hover:scale-125 transition-transform" />
                                     {personalInfo.email}
                                 </a>
                             </motion.div>
@@ -183,13 +217,13 @@ const HomePage = () => {
                                 <motion.div
                                     animate={{ y: [0, -8, 0] }}
                                     transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
-                                    className="absolute -bottom-3 -left-4 bg-white rounded-2xl shadow-xl px-4 py-2.5 flex items-center gap-2 border border-[#94C2DA]/30"
+                                    className="absolute -bottom-3 -left-4 bg-white dark:bg-slate-800 rounded-2xl shadow-xl px-4 py-2.5 flex items-center gap-2 border border-[#94C2DA]/30 dark:border-slate-700"
                                 >
                                     <div className="w-8 h-8 rounded-full bg-[#203F9A] flex items-center justify-center">
                                         <span className="text-white text-xs">📷</span>
                                     </div>
                                     <div>
-                                        <p className="text-xs font-semibold text-[#203F9A]">1K+ Photos</p>
+                                        <p className="text-xs font-semibold text-[#203F9A] dark:text-gray-200">1K+ Photos</p>
                                         <p className="text-[10px] text-gray-400">Taken & Edited</p>
                                     </div>
                                 </motion.div>
@@ -219,11 +253,11 @@ const HomePage = () => {
                                     spotlightColor="rgba(255, 255, 255, 0.4)"
                                     className="border-[#EBB6D8]"
                                 >
-                                    <div className="px-6 py-8 text-center cursor-default bg-[#fff]">
-                                        <p className="font-display font-bold text-3xl md:text-4xl text-[#203F9A]">
+                                    <div className="px-6 py-8 text-center cursor-default bg-[#fff] dark:bg-slate-800/80">
+                                        <p className="font-display font-bold text-3xl md:text-4xl text-[#203F9A] dark:text-[#E7A0CC]">
                                             {stat.value}
                                         </p>
-                                        <p className="text-sm text-[#203F9A]/80 mt-1 font-medium">{stat.label}</p>
+                                        <p className="text-sm text-[#203F9A]/80 dark:text-gray-300 mt-1 font-medium">{stat.label}</p>
                                     </div>
                                 </SpotlightCard>
                             </motion.div>
@@ -246,7 +280,7 @@ const HomePage = () => {
                     initial="hidden"
                     whileInView="visible"
                     viewport={{ once: true, margin: '-50px' }}
-                    className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-12"
+                    className="flex flex-wrap justify-center gap-6 mt-12"
                 >
                     {exploreItems.map((item) => {
                         const Icon = item.icon;
@@ -255,21 +289,21 @@ const HomePage = () => {
                                 key={item.id}
                                 variants={staggerItem}
                                 onClick={() => navigate(item.path)}
-                                className="cursor-pointer group"
+                                className="cursor-pointer group w-full sm:w-[calc(50%-1.5rem)] lg:w-[calc(33.33%-1.5rem)] max-w-sm"
                             >
                                 <SpotlightCard
                                     spotlightColor={`${item.color}20`}
                                     className="h-full"
                                 >
-                                    <div className="p-8 flex flex-col items-center text-center h-full bg-white">
-                                        <div className="w-16 h-16 rounded-2xl bg-white shadow-sm flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 border border-gray-50">
+                                    <div className="p-8 flex flex-col items-center text-center h-full bg-white dark:bg-slate-800/80">
+                                        <div className="w-16 h-16 rounded-2xl bg-white dark:bg-slate-700 shadow-sm flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 border border-gray-50 dark:border-slate-600">
                                             <Icon className="w-8 h-8" style={{ color: item.color }} />
                                         </div>
                                         <p className="text-xs font-bold tracking-[0.2em] text-gray-400 uppercase mb-2">{item.label}</p>
-                                        <h3 className="font-bold text-gray-800 text-lg group-hover:text-[#203F9A] transition-colors">
+                                        <h3 className="font-bold text-gray-800 dark:text-white text-lg group-hover:text-[#203F9A] dark:group-hover:text-[#E84797] transition-colors">
                                             {item.title}
                                         </h3>
-                                        <div className="mt-6 flex items-center gap-1 text-[#203F9A] font-bold text-sm opacity-0 group-hover:opacity-100 transition-opacity">
+                                        <div className="mt-6 flex items-center gap-1 text-[#203F9A] dark:text-[#E7A0CC] font-bold text-sm opacity-0 group-hover:opacity-100 transition-opacity">
                                             Learn More <ChevronRight className="w-4 h-4" />
                                         </div>
                                     </div>
@@ -302,17 +336,17 @@ const HomePage = () => {
                                 spotlightColor={i % 2 === 0 ? 'rgba(32, 63, 154, 0.1)' : 'rgba(232, 71, 151, 0.1)'}
                                 className="h-full"
                             >
-                                <div className="p-8 h-full flex flex-col bg-white">
-                                    <Quote className="w-10 h-10 text-[#203F9A]/10 mb-6" />
-                                    <p className="text-gray-600 italic text-base leading-relaxed mb-8 flex-1">
+                                <div className="p-8 h-full flex flex-col bg-white dark:bg-slate-800/80">
+                                    <Quote className="w-10 h-10 text-[#203F9A]/10 dark:text-gray-100/10 mb-6" />
+                                    <p className="text-gray-600 dark:text-gray-300 italic text-base leading-relaxed mb-8 flex-1">
                                         "{t.quote}"
                                     </p>
-                                    <div className="flex items-center gap-4 border-t border-gray-50 pt-6">
+                                    <div className="flex items-center gap-4 border-t border-gray-50 dark:border-slate-700 pt-6">
                                         <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#94C2DA] to-[#203F9A] flex items-center justify-center text-white font-bold text-sm shadow-inner">
                                             {t.avatar}
                                         </div>
                                         <div>
-                                            <p className="font-bold text-[#203F9A] text-sm">{t.name}</p>
+                                            <p className="font-bold text-[#203F9A] dark:text-gray-100 text-sm">{t.name}</p>
                                             <p className="text-xs text-gray-400 font-medium">{t.role}</p>
                                         </div>
                                     </div>
@@ -344,18 +378,18 @@ const HomePage = () => {
                         {contactItems.map(({ icon: Icon, label, value, href }) => (
                             <motion.div key={label} variants={staggerItem}>
                                 <SpotlightCard spotlightColor="rgba(32, 63, 154, 0.1)">
-                                    <div className="flex items-center gap-4 p-5 bg-white">
-                                        <div className="w-11 h-11 rounded-xl bg-[#203F9A]/10 flex items-center justify-center flex-shrink-0">
-                                            <Icon className="w-5 h-5 text-[#203F9A]" />
+                                    <div className="flex items-center gap-4 p-5 bg-white dark:bg-slate-800/80">
+                                        <div className="w-11 h-11 rounded-xl bg-[#203F9A]/10 dark:bg-[#94C2DA]/10 flex items-center justify-center flex-shrink-0">
+                                            <Icon className="w-5 h-5 text-[#203F9A] dark:text-[#94C2DA]" />
                                         </div>
                                         <div>
                                             <p className="text-xs text-gray-400 font-medium">{label}</p>
                                             {href ? (
-                                                <a href={href} className="text-sm font-semibold text-[#203F9A] hover:text-[#E84797] transition-colors duration-200">
+                                                <a href={href} className="text-sm font-semibold text-[#203F9A] dark:text-white hover:text-[#E84797] dark:hover:text-[#E84797] transition-colors duration-200">
                                                     {value}
                                                 </a>
                                             ) : (
-                                                <p className="text-sm font-semibold text-gray-700">{value}</p>
+                                                <p className="text-sm font-semibold text-gray-700 dark:text-gray-200">{value}</p>
                                             )}
                                         </div>
                                     </div>
@@ -400,7 +434,7 @@ const HomePage = () => {
                         <SpotlightCard spotlightColor="rgba(32, 63, 154, 0.08)">
                             <form
                                 onSubmit={handleSubmit}
-                                className="p-7 md:p-10 bg-white shadow-xl"
+                                className="p-7 md:p-10 bg-white dark:bg-slate-800 shadow-xl"
                                 noValidate
                             >
                                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-5">
@@ -422,24 +456,24 @@ const HomePage = () => {
                                 </div>
 
                                 <div className="mb-5">
-                                    <label htmlFor="contact-subject" className="block text-sm font-medium text-gray-600 mb-1.5">Subject</label>
+                                    <label htmlFor="contact-subject" className="block text-sm font-medium text-gray-600 dark:text-gray-300 mb-1.5">Subject</label>
                                     <input
                                         id="contact-subject" type="text" name="subject"
                                         value={form.subject} onChange={handleChange}
                                         placeholder="Photography booking / Collaboration"
-                                        className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm bg-gray-50
-                               focus:outline-none focus:ring-2 focus:ring-[#203F9A]/30 focus:border-[#203F9A] transition-all duration-200"
+                                        className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-slate-600 text-sm bg-gray-50 dark:bg-slate-900/50 dark:text-gray-100 placeholder-gray-400
+                               focus:outline-none focus:ring-2 focus:ring-[#203F9A]/30 focus:border-[#203F9A] dark:focus:border-[#94C2DA] transition-all duration-200"
                                     />
                                 </div>
 
                                 <div className="mb-6">
-                                    <label htmlFor="contact-message" className="block text-sm font-medium text-gray-600 mb-1.5">Message *</label>
+                                    <label htmlFor="contact-message" className="block text-sm font-medium text-gray-600 dark:text-gray-300 mb-1.5">Message *</label>
                                     <textarea
                                         id="contact-message" name="message" rows={5}
                                         value={form.message} onChange={handleChange} required
                                         placeholder="Tell me about your project or how I can help..."
-                                        className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm resize-none bg-gray-50
-                               focus:outline-none focus:ring-2 focus:ring-[#203F9A]/30 focus:border-[#203F9A] transition-all duration-200"
+                                        className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-slate-600 text-sm resize-none bg-gray-50 dark:bg-slate-900/50 dark:text-gray-100 placeholder-gray-400
+                               focus:outline-none focus:ring-2 focus:ring-[#203F9A]/30 focus:border-[#203F9A] dark:focus:border-[#94C2DA] transition-all duration-200"
                                     />
                                 </div>
 

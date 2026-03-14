@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowLeft, X, ChevronLeft, ChevronRight, ZoomIn } from 'lucide-react';
+import { ArrowLeft, X, ChevronLeft, ChevronRight, ZoomIn, Calendar, ExternalLink } from 'lucide-react';
 import { portfolioItems } from '../../data';
 import { Section, SpotlightCard } from '../../common';
 import { fadeUp, staggerContainer, staggerItem } from '../../animations/variants';
@@ -78,28 +78,47 @@ const PortfolioDetailPage = () => {
                 >
                     <button
                         onClick={() => navigate('/portfolio')}
-                        className="flex items-center gap-2 text-gray-500 hover:text-[#E84797] transition-colors mb-6 group text-sm font-semibold"
+                        className="flex items-center gap-2 text-gray-500 dark:text-gray-400 hover:text-[#E84797] dark:hover:text-[#E7A0CC] transition-colors mb-6 group text-sm font-semibold"
                     >
-                        <div className="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center group-hover:bg-[#E84797]/10 transition-colors">
+                        <div className="w-8 h-8 rounded-full bg-gray-100 dark:bg-slate-800 flex items-center justify-center group-hover:bg-[#E84797]/10 dark:group-hover:bg-[#E7A0CC]/10 transition-colors">
                             <ArrowLeft className="w-4 h-4" />
                         </div>
                         Back to Portfolio
                     </button>
 
-                    <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-8 border-b border-gray-100">
+                    <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-8 border-b border-gray-100 dark:border-slate-700">
                         <div className="flex-1">
-                            <span className="inline-block px-3 py-1 bg-[#203F9A]/10 text-[#203F9A] text-xs font-bold tracking-widest uppercase rounded-full mb-4">
-                                {project.category}
-                            </span>
-                            <h1 className="text-4xl md:text-5xl font-display font-bold text-gray-900 mb-4">{project.title}</h1>
-                            <p className="text-gray-600 text-lg md:text-xl max-w-2xl leading-relaxed">
+                            <div className="flex flex-wrap items-center gap-3 mb-4">
+                                <span className="inline-block px-3 py-1 bg-[#203F9A]/10 dark:bg-[#94C2DA]/10 text-[#203F9A] dark:text-[#94C2DA] text-xs font-bold tracking-widest uppercase rounded-full">
+                                    {project.category}
+                                </span>
+                                {project.period && (
+                                    <span className="flex items-center gap-1.5 text-xs font-semibold text-gray-500 dark:text-gray-400">
+                                        <Calendar className="w-3.5 h-3.5" />
+                                        {project.period}
+                                    </span>
+                                )}
+                            </div>
+                            <h1 className="text-4xl md:text-5xl font-display font-bold text-gray-900 dark:text-white mb-4">{project.title}</h1>
+                            <p className="text-gray-600 dark:text-gray-300 text-lg md:text-xl max-w-2xl leading-relaxed mb-6">
                                 {project.description}
                             </p>
+
+                            {project.link && (
+                                <a
+                                    href={project.link}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="inline-flex items-center gap-2 text-[#E84797] hover:text-[#203F9A] dark:text-[#E7A0CC] dark:hover:text-[#94C2DA] font-bold text-sm transition-colors group"
+                                >
+                                    View Project <ExternalLink className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                                </a>
+                            )}
                         </div>
 
-                        <div className="flex flex-wrap gap-2 text-sm text-gray-500 font-medium">
+                        <div className="flex flex-wrap gap-2 text-sm text-gray-500 dark:text-gray-400 font-medium">
                             {project.tags.map(tag => (
-                                <span key={tag} className="px-3 py-1.5 bg-gray-50 rounded-lg">#{tag}</span>
+                                <span key={tag} className="px-3 py-1.5 bg-gray-50 dark:bg-slate-800 rounded-lg">#{tag}</span>
                             ))}
                         </div>
                     </div>
@@ -121,7 +140,7 @@ const PortfolioDetailPage = () => {
                                 onClick={() => openLightbox(idx)}
                             >
                                 <SpotlightCard spotlightColor="rgba(232, 71, 151, 0.2)" className="hover:-translate-y-1 transition-transform p-3">
-                                    <div className="relative overflow-hidden rounded-xl bg-gray-100 group-hover:shadow-md transition-shadow">
+                                    <div className="relative overflow-hidden rounded-xl bg-gray-100 dark:bg-slate-800 group-hover:shadow-md transition-shadow">
                                         <img
                                             src={img}
                                             alt={`${project.title} ${idx + 1}`}
@@ -131,7 +150,7 @@ const PortfolioDetailPage = () => {
 
                                         {/* Hover Overlay */}
                                         <div className="absolute inset-0 bg-[#203F9A]/0 group-hover:bg-[#203F9A]/20 transition-colors duration-300 flex items-center justify-center">
-                                            <div className="opacity-0 group-hover:opacity-100 transform scale-50 group-hover:scale-100 transition-all duration-300 w-12 h-12 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center text-[#E84797]">
+                                            <div className="opacity-0 group-hover:opacity-100 transform scale-50 group-hover:scale-100 transition-all duration-300 w-12 h-12 bg-white/90 dark:bg-slate-800/90 backdrop-blur-sm rounded-full flex items-center justify-center text-[#E84797] dark:text-[#E7A0CC]">
                                                 <ZoomIn className="w-5 h-5" />
                                             </div>
                                         </div>
@@ -139,8 +158,8 @@ const PortfolioDetailPage = () => {
 
                                     {/* Small elegant border bottom (Polaroid vibe) */}
                                     <div className="flex justify-between items-center px-1 pt-3 pb-1">
-                                        <div className="w-8 h-[2px] bg-[#E84797]/30 rounded-full" />
-                                        <p className="text-[10px] font-medium text-gray-400">0{idx + 1}</p>
+                                        <div className="w-8 h-[2px] bg-[#E84797]/30 dark:bg-[#E7A0CC]/30 rounded-full" />
+                                        <p className="text-[10px] font-medium text-gray-400 dark:text-gray-500">0{idx + 1}</p>
                                     </div>
                                 </SpotlightCard>
                             </motion.div>

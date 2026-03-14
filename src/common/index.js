@@ -12,19 +12,43 @@ import SpotlightCard from './SpotlightCard';
 import ShinyText from './ShinyText';
 import CloudinaryUploadWidget from './CloudinaryUploadWidget';
 import Squares from './Squares';
+import ScrollToTop from './ScrollToTop';
 
-export { SectionHeader };
-export { Section };
-export { AnimatedButton };
-export { ExperienceCard };
-export { PortfolioCard };
+export {
+  SectionHeader
+};
+export {
+  Section
+};
+export {
+  AnimatedButton
+};
+export {
+  ExperienceCard
+};
+export {
+  PortfolioCard
+};
+export {
+  ScrollToTop
+};
 
 // ReactBits
-export { SplitText };
-export { SpotlightCard };
-export { ShinyText };
-export { CloudinaryUploadWidget };
-export { Squares };
+export {
+  SplitText
+};
+export {
+  SpotlightCard
+};
+export {
+  ShinyText
+};
+export {
+  CloudinaryUploadWidget
+};
+export {
+  Squares
+};
 
 // Grouped exports
 export const UI = {

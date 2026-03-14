@@ -19,15 +19,9 @@ const appConfig = {
       },
       {
         id: 'experience',
-        label: 'Experience',
+        label: 'Skill & Experience',
         path: '/experience',
         hash: '#experience'
-      },
-      {
-        id: 'skills',
-        label: 'Skills',
-        path: '/skills',
-        hash: '#skills'
       },
       {
         id: 'portfolio',
