@@ -47,11 +47,11 @@ export const navLinks = [{
 ];
 
 export const stats = [{
-    value: "1K+",
+    value: "1000+",
     label: "Photos Taken"
   },
   {
-    value: "150+",
+    value: "200+",
     label: "@nahs.album Followers"
   },
   {

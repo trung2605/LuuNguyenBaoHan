@@ -114,19 +114,19 @@ const HomePage = () => {
                 <div className="absolute bottom-10 left-0 w-72 h-72 bg-[#E7A0CC]/25 rounded-full blur-3xl pointer-events-none" />
 
                 <div className="relative w-full max-w-7xl mx-auto px-6 md:px-12 lg:px-24">
-                    <div className="flex flex-col-reverse lg:flex-row items-center gap-12 lg:gap-20">
+                    <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-20">
 
                         {/* ── LEFT: Text ── */}
                         <motion.div
-                            className="flex-1"
+                            className="flex-1 text-center lg:text-left"
                             variants={staggerContainer(0.1, 0.1)}
                             initial="hidden"
                             animate="visible"
                         >
-                            <motion.div variants={staggerItem}>
+                            <motion.div variants={staggerItem} className="flex justify-center lg:justify-start">
                                 <div className="inline-flex items-center gap-2 bg-white/70 dark:bg-slate-800/70 border border-[#94C2DA] dark:border-[#94C2DA]/30
-                                  text-[#203F9A] dark:text-gray-200 text-sm font-medium px-4 py-2 rounded-full mb-6 shadow-sm">
-                                    <Sparkles className="w-4 h-4 text-[#E84797]" />
+                                  text-[#203F9A] dark:text-gray-200 text-xs md:text-sm font-medium px-4 py-2 rounded-full mb-6 shadow-sm">
+                                    <Sparkles className="w-3.5 h-3.5 text-[#E84797]" />
                                     <ShinyText text="Available for new projects" speed={3} />
                                 </div>
                             </motion.div>
@@ -134,21 +134,21 @@ const HomePage = () => {
                             <div className="mb-4">
                                 <SplitText
                                     text="Hi, I'm"
-                                    className="font-display font-bold text-4xl md:text-5xl lg:text-6xl text-gray-800 dark:text-gray-100"
+                                    className="font-display font-bold text-3xl md:text-5xl lg:text-6xl text-gray-800 dark:text-gray-100"
                                     delay={0.2}
                                 />
                                 <div className="block mt-1">
-                                    <span className="font-display font-bold text-4xl md:text-5xl lg:text-6xl bg-gradient-to-r from-[#203F9A] to-[#E84797] dark:from-[#94C2DA] dark:to-[#E84797] bg-clip-text text-transparent">
+                                    <span className="font-display font-bold text-4xl md:text-5xl lg:text-6xl bg-gradient-to-r from-[#203F9A] to-[#E84797] dark:from-[#94C2DA] dark:to-[#E84797] bg-clip-text text-transparent leading-tight">
                                         {personalInfo.nameVi}
                                     </span>
                                 </div>
                             </div>
 
-                            <motion.div variants={staggerItem} className="h-10 overflow-hidden mb-5" aria-live="polite">
+                            <motion.div variants={staggerItem} className="h-8 md:h-10 overflow-hidden mb-5" aria-live="polite">
                                 {personalInfo.roles.map((role, i) => (
                                     <p
                                         key={role}
-                                        className={`text-xl md:text-2xl font-semibold text-[#4E7CB2] dark:text-[#E7A0CC] transition-all duration-500 ${i === roleIndex ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-8 absolute'
+                                        className={`text-lg md:text-2xl font-semibold text-[#4E7CB2] dark:text-[#E7A0CC] transition-all duration-500 ${i === roleIndex ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-8 absolute'
                                             }`}
                                     >
                                         {role}
@@ -156,85 +156,83 @@ const HomePage = () => {
                                 ))}
                             </motion.div>
 
-                            <motion.div variants={staggerItem} className="flex items-center gap-3 mb-6">
+                            <motion.div variants={staggerItem} className="flex justify-center lg:justify-start items-center gap-3 mb-6">
                                 <div className="h-0.5 w-12 bg-[#E84797]" />
                                 <div className="h-0.5 w-6 bg-[#94C2DA]" />
-                                <div className="h-0.5 w-3 bg-[#E7A0CC]" />
                             </motion.div>
 
-                            <motion.p variants={staggerItem} className="text-gray-600 dark:text-gray-300 text-base md:text-lg leading-relaxed max-w-xl mb-8">
+                            <motion.p variants={staggerItem} className="text-gray-600 dark:text-gray-300 text-sm md:text-lg leading-relaxed max-w-xl mb-8 mx-auto lg:mx-0">
                                 {personalInfo.bio}
                             </motion.p>
 
-                            <motion.div variants={staggerItem} className="flex flex-wrap gap-4 mb-10 text-sm text-gray-500 dark:text-gray-400">
-                                <span className="flex items-center gap-1.5 cursor-default group">
-                                    <MapPin className="w-4 h-4 text-[#E84797] dark:text-[#E7A0CC] group-hover:scale-125 transition-transform" />
+                            <motion.div variants={staggerItem} className="flex flex-wrap justify-center lg:justify-start gap-4 mb-10 text-xs md:text-sm text-gray-500 dark:text-gray-400">
+                                <span className="flex items-center gap-1.5 cursor-default group whitespace-nowrap">
+                                    <MapPin className="w-4 h-4 text-[#E84797] dark:text-[#E7A0CC]" />
                                     {personalInfo.location}
                                 </span>
                                 <a
                                     href={`mailto:${personalInfo.email}`}
-                                    className="flex items-center gap-1.5 hover:text-[#203F9A] dark:hover:text-[#94C2DA] transition-colors duration-200 group"
+                                    className="flex items-center gap-1.5 hover:text-[#203F9A] dark:hover:text-[#94C2DA] transition-colors duration-200 group whitespace-nowrap"
                                 >
-                                    <Mail className="w-4 h-4 text-[#203F9A] dark:text-[#94C2DA] group-hover:scale-125 transition-transform" />
+                                    <Mail className="w-4 h-4 text-[#203F9A] dark:text-[#94C2DA]" />
                                     {personalInfo.email}
                                 </a>
                             </motion.div>
 
-                            <motion.div variants={staggerItem} className="flex flex-wrap gap-4">
-                                <AnimatedButton onClick={() => {
+                            <motion.div variants={staggerItem} className="flex flex-wrap justify-center lg:justify-start gap-4">
+                                <AnimatedButton size="sm" className="md:size-default" onClick={() => {
                                     document.getElementById('contact-section')?.scrollIntoView({ behavior: 'smooth' });
                                 }}>
                                     Get In Touch
                                 </AnimatedButton>
-                                <AnimatedButton variant="outline" onClick={() => navigate('/portfolio')}>View My Work</AnimatedButton>
+                                <AnimatedButton size="sm" variant="outline" className="md:size-default" onClick={() => navigate('/portfolio')}>View My Work</AnimatedButton>
                             </motion.div>
                         </motion.div>
 
                         {/* ── RIGHT: Avatar ── */}
                         <motion.div
                             className="flex-shrink-0"
-                            initial={{ opacity: 0, scale: 0.85 }}
+                            initial={{ opacity: 0, scale: 0.8 }}
                             animate={{ opacity: 1, scale: 1 }}
                             transition={{ duration: 0.9, delay: 0.3, ease: [0.34, 1.56, 0.64, 1] }}
                         >
                             <div className="relative">
                                 <div className="absolute inset-0 rounded-full bg-gradient-to-br from-[#203F9A] via-[#94C2DA] to-[#E84797]
                                   scale-105 opacity-20 blur-md" />
-                                <div className="absolute inset-0 rounded-full border-4 border-dashed border-[#94C2DA]/50 scale-[1.03]" />
+                                <div className="absolute inset-0 rounded-full border-4 border-dashed border-[#94C2DA]/30 scale-[1.03]" />
 
                                 <motion.div
                                     animate={floatAnimation}
-                                    className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-white shadow-2xl group"
+                                    className="relative w-48 h-48 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-white dark:border-slate-800 shadow-2xl group"
                                 >
                                     <img
                                         src={personalInfo.avatarUrl}
                                         alt={personalInfo.avatarAlt}
                                         className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                                     />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-[#203F9A]/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                                </motion.div>
+
+                                <motion.div
+                                    animate={{ y: [0, -6, 0] }}
+                                    transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
+                                    className="absolute -bottom-2 -left-2 md:-bottom-3 md:-left-4 bg-white dark:bg-slate-800 rounded-xl md:rounded-2xl shadow-xl px-3 py-2 md:px-4 md:py-2.5 flex items-center gap-2 border border-[#94C2DA]/30"
+                                >
+                                    <div className="w-6 h-6 md:w-8 md:h-8 rounded-full bg-[#203F9A] flex items-center justify-center">
+                                        <span className="text-white text-[10px] md:text-xs">📷</span>
+                                    </div>
+                                    <div className="text-left">
+                                        <p className="text-[10px] md:text-sm font-bold text-[#203F9A] dark:text-gray-200 leading-none">1K+ Photos</p>
+                                        <p className="text-[8px] md:text-[10px] text-gray-400">Captured</p>
+                                    </div>
                                 </motion.div>
 
                                 <motion.div
                                     animate={{ y: [0, -8, 0] }}
-                                    transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
-                                    className="absolute -bottom-3 -left-4 bg-white dark:bg-slate-800 rounded-2xl shadow-xl px-4 py-2.5 flex items-center gap-2 border border-[#94C2DA]/30 dark:border-slate-700"
-                                >
-                                    <div className="w-8 h-8 rounded-full bg-[#203F9A] flex items-center justify-center">
-                                        <span className="text-white text-xs">📷</span>
-                                    </div>
-                                    <div>
-                                        <p className="text-xs font-semibold text-[#203F9A] dark:text-gray-200">1K+ Photos</p>
-                                        <p className="text-[10px] text-gray-400">Taken & Edited</p>
-                                    </div>
-                                </motion.div>
-
-                                <motion.div
-                                    animate={{ y: [0, -10, 0] }}
                                     transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
-                                    className="absolute -top-3 -right-4 bg-[#203F9A] rounded-2xl shadow-xl px-4 py-2.5"
+                                    className="absolute -top-2 -right-2 md:-top-3 md:-right-4 bg-[#203F9A] rounded-xl md:rounded-2xl shadow-xl px-3 py-2 md:px-4 md:py-2.5"
                                 >
-                                    <p className="text-white text-xs font-semibold">3+ Years</p>
-                                    <p className="text-[#94C2DA] text-[10px]">of Experience</p>
+                                    <p className="text-white text-[10px] md:text-sm font-bold leading-none">3+ Years</p>
+                                    <p className="text-[#94C2DA] text-[8px] md:text-[10px]">Journey</p>
                                 </motion.div>
                             </div>
                         </motion.div>
@@ -245,7 +243,7 @@ const HomePage = () => {
                         variants={staggerContainer(0.08, 0.5)}
                         initial="hidden"
                         animate="visible"
-                        className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16 md:mt-24"
+                        className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mt-16 md:mt-24"
                     >
                         {stats.map((stat) => (
                             <motion.div key={stat.label} variants={staggerItem}>
@@ -253,11 +251,11 @@ const HomePage = () => {
                                     spotlightColor="rgba(255, 255, 255, 0.4)"
                                     className="border-[#EBB6D8]"
                                 >
-                                    <div className="px-6 py-8 text-center cursor-default bg-[#fff] dark:bg-slate-800/80">
-                                        <p className="font-display font-bold text-3xl md:text-4xl text-[#203F9A] dark:text-[#E7A0CC]">
+                                    <div className="px-4 py-6 md:px-6 md:py-8 text-center bg-white dark:bg-slate-800/80">
+                                        <p className="font-display font-bold text-2xl md:text-4xl text-[#203F9A] dark:text-[#E7A0CC]">
                                             {stat.value}
                                         </p>
-                                        <p className="text-sm text-[#203F9A]/80 dark:text-gray-300 mt-1 font-medium">{stat.label}</p>
+                                        <p className="text-[11px] md:text-sm text-[#203F9A]/80 dark:text-gray-300 mt-1 font-medium">{stat.label}</p>
                                     </div>
                                 </SpotlightCard>
                             </motion.div>

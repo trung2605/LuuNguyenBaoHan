@@ -138,51 +138,48 @@ const Navigation = () => {
             <AnimatePresence>
                 {menuOpen && (
                     <motion.div
-                        initial={{ opacity: 0, height: 0 }}
-                        animate={{ opacity: 1, height: 'auto' }}
-                        exit={{ opacity: 0, height: 0 }}
-                        transition={{ duration: 0.3, ease: 'easeInOut' }}
-                        className="md:hidden overflow-hidden bg-[#EFE8E0]/98 dark:bg-[#0f172a]/98 backdrop-blur-md border-t border-[#94C2DA]/30 dark:border-white/10"
+                        initial={{ opacity: 0, scale: 0.95, y: -20 }}
+                        animate={{ opacity: 1, scale: 1, y: 0 }}
+                        exit={{ opacity: 0, scale: 0.95, y: -20 }}
+                        transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+                        className="md:hidden fixed inset-x-4 top-20 z-40 overflow-hidden bg-white/98 dark:bg-slate-900/98 backdrop-blur-xl border border-gray-200 dark:border-white/10 rounded-3xl shadow-2xl"
                     >
-                        <div className="px-6 py-4 space-y-1">
+                        <div className="px-5 py-6 space-y-2">
                             {sections.map((section) => (
                                 <NavLink
                                     key={section.id}
                                     to={section.path}
                                     onClick={() => handleNavClick(section.path)}
                                     className={({ isActive }) =>
-                                        `block px-4 py-3 rounded-xl text-sm font-medium transition-all duration-200 ${isActive ? 'text-[#203F9A] dark:text-white bg-[#94C2DA]/25 dark:bg-[#94C2DA]/20' : 'text-gray-600 dark:text-white hover:text-[#203F9A] dark:hover:text-white hover:bg-[#94C2DA]/15 dark:hover:bg-white/5'
+                                        `flex items-center space-x-3 px-5 py-3.5 rounded-2xl text-sm font-semibold transition-all duration-300 ${isActive
+                                            ? 'text-[#203F9A] dark:text-white bg-[#94C2DA]/20 dark:bg-white/10'
+                                            : 'text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-white/5'
                                         }`
                                     }
                                 >
-                                    {section.label}
+                                    <span>{section.label}</span>
                                 </NavLink>
                             ))}
-                            <div className="pt-2">
+
+                            <div className="pt-4 grid grid-cols-2 gap-3">
+                                <button
+                                    onClick={() => {
+                                        toggleTheme();
+                                    }}
+                                    className="flex items-center justify-center bg-gray-100 dark:bg-white/5 text-[#203F9A] dark:text-[#E7A0CC]
+                                     py-3.5 rounded-2xl text-sm font-bold active:scale-95 transition-transform"
+                                >
+                                    {isDarkMode ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+                                </button>
                                 <button
                                     onClick={() => {
                                         closeMenu();
                                         handleNavClick('/#contact-section');
                                     }}
-                                    className="flex justify-center w-full bg-[#203F9A] text-white
-                             px-5 py-3 rounded-full text-sm font-semibold
-                             hover:bg-[#E84797] transition-colors duration-300"
+                                    className="flex items-center justify-center bg-[#203F9A] text-white
+                                     py-3.5 rounded-2xl text-sm font-bold active:scale-95 transition-transform shadow-lg shadow-[#203F9A]/20"
                                 >
                                     Hire Me
-                                </button>
-                                <button
-                                    onClick={() => {
-                                        toggleTheme();
-                                        closeMenu();
-                                    }}
-                                    className="mt-2 flex items-center justify-center w-full bg-[#EFE8E0] dark:bg-[#1e293b] text-[#203F9A] dark:text-[#E7A0CC]
-                             px-5 py-3 rounded-full text-sm font-semibold hover:bg-[#94C2DA]/30 transition-colors duration-300"
-                                >
-                                    {isDarkMode ? (
-                                        <><Sun className="w-4 h-4 mr-2" /> Light Mode</>
-                                    ) : (
-                                        <><Moon className="w-4 h-4 mr-2" /> Dark Mode</>
-                                    )}
                                 </button>
                             </div>
                         </div>
