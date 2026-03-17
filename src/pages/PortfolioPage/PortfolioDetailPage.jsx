@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowLeft, X, ChevronLeft, ChevronRight, ZoomIn, Calendar, ExternalLink } from 'lucide-react';
+import ReactMarkdown from 'react-markdown';
+import remarkBreaks from 'remark-breaks';
 import { portfolioItems } from '../../data';
 import { Section, SpotlightCard, Portal } from '../../common';
 import { fadeUp, staggerContainer, staggerItem } from '../../animations/variants';
@@ -110,9 +112,11 @@ const PortfolioDetailPage = () => {
                                 )}
                             </div>
                             <h1 className="text-4xl md:text-5xl font-display font-bold text-gray-900 dark:text-white mb-4">{project.title}</h1>
-                            <p className="text-gray-600 dark:text-gray-300 text-lg md:text-xl max-w-2xl leading-relaxed mb-6">
-                                {project.description}
-                            </p>
+                            <div className="prose prose-slate dark:prose-invert max-w-none prose-p:leading-relaxed mb-6">
+                                <ReactMarkdown remarkPlugins={[remarkBreaks]}>
+                                    {project.description}
+                                </ReactMarkdown>
+                            </div>
 
                             {project.link && (
                                 <a

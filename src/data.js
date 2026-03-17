@@ -7,7 +7,7 @@ export const personalInfo = {
   nameVi: "Lưu Nguyễn Bảo Hân",
   roles: ["Media Position", "Photographer", "Personal Branding"],
   tagline: "Capturing stories through the lens of creativity.",
-  bio: "I am really look forward to gaining more experience from my seniors in event execution, collaboration (teamwork), and particularly in photo post-processing skills.",
+  bio: "I am looking forward to gaining more experience from my seniors in event execution, collaboration (teamwork), and particularly in photo post-processing skills.",
   email: "baohan08112007@gmail.com",
   phone: "(+84) 916081107",
   location: "Binh Thanh, Ho Chi Minh City",
@@ -177,7 +177,7 @@ export const portfolioItems = [{
     category: "Editorial Photography",
     period: "10/02/2026 - 14/02/2026",
     link: "https://surl.li/funste",
-    description: "Bôn ba khắp chốn xa quê nhà ,chẳng bằng giây phút được kề cạnh bên nhau. Giữa cái tấp nập, rộn ràng của chốn Đà Thành ngày sang xuân, có mảnh tình dừng lại gom nhặt từng vụn sáng bình yên. Họ đi không chỉ đi sắm Tết, mà để gói lại từng khoảnh khắc quý giá nhất cùng nhau vào thước phim \"mùa trở về\"\n\nĐà Nẵng - nơi nét nên chuyện tình đôi ta",
+    description: "Bôn ba khắp chốn xa quê nhà ,chẳng bằng giây phút được kề cạnh bên nhau. Giữa cái tấp nập, rộn ràng của chốn Đà Thành ngày sang xuân, có mảnh tình dừng lại gom nhặt từng vụn sáng bình yên. Họ đi không chỉ đi sắm Tết, mà để gói lại từng khoảnh khắc quý giá nhất cùng nhau vào thước phim \"mùa trở về\"\n\nĐà Nẵng - nơi nét nên chuyện tình đôi ta.",
     tags: ["Editorial", "Da Nang", "Spring"],
     color: "blue",
     images: [

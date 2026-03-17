@@ -1,6 +1,8 @@
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { staggerItem } from '../animations/variants';
+import ReactMarkdown from 'react-markdown';
+import remarkBreaks from 'remark-breaks';
 
 /**
  * PortfolioCard — card for a single portfolio item.
@@ -80,7 +82,11 @@ const PortfolioCard = ({ item, index, noShadow = false }) => {
                 <h3 className="font-bold text-[#203F9A] dark:text-gray-100 text-lg mb-2 font-display group-hover:text-[#E84797] dark:group-hover:text-[#E7A0CC] transition-colors duration-300">
                     {item.title}
                 </h3>
-                <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed flex-1 mb-4">{item.description}</p>
+                <div className="prose prose-sm prose-slate dark:prose-invert max-w-none mb-4">
+                    <ReactMarkdown remarkPlugins={[remarkBreaks]}>
+                        {item.description}
+                    </ReactMarkdown>
+                </div>
                 <div className="flex flex-wrap gap-2">
                     {item.tags.map((tag) => (
                         <span key={tag} className="text-xs bg-[#EFE8E0] dark:bg-slate-700 text-gray-500 dark:text-gray-300 px-3 py-1 rounded-full">
