@@ -41,7 +41,7 @@ const Navigation = () => {
     return (
         <nav
             className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled
-                ? 'bg-white/95 dark:bg-[#0f172a]/95 backdrop-blur-md shadow-md py-3'
+                ? 'bg-white dark:bg-[#0f172a] shadow-md py-3'
                 : 'bg-transparent py-5'
                 }`}
         >
@@ -142,7 +142,7 @@ const Navigation = () => {
                         animate={{ opacity: 1, scale: 1, y: 0 }}
                         exit={{ opacity: 0, scale: 0.95, y: -20 }}
                         transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-                        className="md:hidden fixed inset-x-4 top-20 z-40 overflow-hidden bg-white/98 dark:bg-slate-900/98 backdrop-blur-xl border border-gray-200 dark:border-white/10 rounded-3xl shadow-2xl"
+                        className="md:hidden fixed inset-x-4 top-20 z-40 overflow-hidden bg-white dark:bg-slate-900 border border-gray-200 dark:border-white/10 rounded-3xl shadow-2xl"
                     >
                         <div className="px-5 py-6 space-y-2">
                             {sections.map((section) => (
